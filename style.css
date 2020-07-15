@@ -137,5 +137,6 @@ a:hover {
     margin-left: 1rem;
 }
 
-/* rgba(95,221,229,0.25) */
-/* rgba(243, 113, 33, 0.75) */
+.error-label {
+    font-size: small !important;
+}

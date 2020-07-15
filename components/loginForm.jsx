@@ -1,27 +1,29 @@
-import { Component } from 'react';
-import Input from "../components/common/formInput";
+import Joi from "joi-browser";
+import Form from "../components/common/form";
 
-class LoginForm extends Component {
+class LoginForm extends Form {
 
     state = {
-        account: {
+        data: {
             username: "",
             password: ""
-        }
-    }
-    
-    handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("submitted");
+        },
+        errors: {}
     }
 
-    handleChange = ({ currentTarget: input }) => {
-        const account = { ...this.state.account };
-        account[input.name] = input.value;
-        this.setState({ account });
+    schema = {
+        username: Joi.string().required().label("Username"),
+        password: Joi.string().required().label("Password")
+    };
+
+
+    doSubmit = () => {
+        // Call the server
+        console.log("Submitted");
     }
 
     render() {
+
         return (
             <div className="container loginForm">
                 <div className="card-section border rounded p-3">
@@ -29,20 +31,10 @@ class LoginForm extends Component {
                         <h2 className="card-header-title text-white pt-3">Login</h2>
                     </div>
                     <div className="card-body">
-                            <form onSubmit={this.handleSubmit}>
-                            <Input
-                                name="username"
-                                value={this.state.account.username}
-                                label="Username"
-                                onChange={this.handleChange}
-                            />
-                            <Input
-                                name="password"
-                                value={this.state.account.password}
-                                label="Password"
-                                onChange={this.handleChange}
-                            />
-                            <button className="btn btn-primary">Login</button>
+                        <form onSubmit={this.handleSubmit}>
+                            {this.renderInput("username", "Username")}
+                            {this.renderInput("password", "Password", "password")}
+                            {this.renderButton("Login")}
                             <hr />
                             <p>
                                 <span className="card-text">Not a member?</span>

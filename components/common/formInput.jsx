@@ -1,17 +1,20 @@
-const FormInput = ({ name, label, value, onChange }) => {
+import { Label } from 'semantic-ui-react';
+
+const FormInput = ({ name, label, value, error, type, onChange }) => {
     return (
         <div className="form-group">
             <label htmlFor={name}>{label}</label>
             <input 
-                autoFocus 
-                id={name} 
-                type="text" 
-                className="form-control"
                 value={value}
-                onChange={onChange}
                 name={name}
+                type={type}
+                onChange={onChange}
+                id={name} 
+                className="form-control"
             />
+            {error && <Label basic color='red' pointing className="error-label">{error}</Label>}
         </div>
+
     )
 }
 

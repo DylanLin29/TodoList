@@ -1,9 +1,15 @@
-import Head from 'next/head'
+import Navbar from "../components/navbar";
+import Features from "../components/features";
+import Jumbotron from "../components/jumbotron";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div>
-      Hello World
-    </div>
+    <>
+      <Navbar />
+      <Jumbotron />
+      <Features />
+    </>
   )
 }
+
+export default Home;

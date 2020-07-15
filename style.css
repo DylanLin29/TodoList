@@ -1,3 +1,5 @@
+/* Navbar */
+
 .navbar {
     background-color: #5fdde5;
 }
@@ -8,7 +10,7 @@
     font-size: large;
 }
 
-.ml-auto .nav-link {
+.register {
     margin-right: 2rem;
 }
 
@@ -20,6 +22,8 @@
 .navbar-brand:hover {
     color: white;
 }
+
+/* Features */
 
 .row img {
     margin-top: 5%;
@@ -39,6 +43,8 @@ body {
     max-height: 100vh;
 }
 
+/* Jumbotron */
+
 .jumbotron {
     width: 60%;
     margin: 1rem auto;
@@ -54,6 +60,81 @@ body {
 
 .jumbotron img {
     width: 10rem;
+}
+
+/* loginForm */
+
+.loginForm {
+    margin-top: 5%;
+    width: 30% !important;
+}
+
+.loginForm h1 {
+    color: #00C2CB;
+    font-weight: 600 !important;
+}
+
+label {
+    font-weight: 500;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: rgb(95,221,229);
+}
+
+button .btn .btn-primary {
+    background-color: #00C2CB !important;
+}
+
+.card-section {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.card-header-login {
+    margin-top: -40px;
+    height: 5rem;
+    background: linear-gradient(-90deg, rgb(60, 211, 148), rgb(95,221,229));
+    box-shadow: 1px 5px 15px #a2a2a2;
+    border-radius: 0.8rem;
+}
+
+.card-header-register {
+    margin-top: -40px;
+    height: 5rem;
+    background: linear-gradient(-90deg, #f37121, #ffbd69);
+    box-shadow: 1px 5px 15px #a2a2a2;
+    border-radius: 0.8rem;
+}
+
+.card-header-title {
+    margin-left: 1rem;
+}
+
+.btn-primary {
+    background-color: rgb(95,221,229) !important;
+    border-color: rgb(110, 228, 236)!important;
+}
+
+.btn .btn-primary:focus, .btn .btn-primary:active {
+    outline: none !important
+}
+
+.card-text {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: #e8e4e1;
+    margin-right: 0.5rem;
+}
+
+.card-text a {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: #1b6ca8;
+}
+
+a:hover {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.login-sign-up {
+    margin-left: 1rem;
 }
 
 /* rgba(95,221,229,0.25) */

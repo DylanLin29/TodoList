@@ -1,9 +1,9 @@
 import { Label } from 'semantic-ui-react';
 
-const FormInput = ({ name, label, value, error, type, onChange }) => {
+const FormInput = ({ name, label, value, error, type, labelClass, onChange }) => {
     return (
         <div className="form-group">
-            <label htmlFor={name}>{label}</label>
+            <label htmlFor={name} className={labelClass}>{label}</label>
             <input 
                 value={value}
                 name={name}

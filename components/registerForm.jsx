@@ -13,8 +13,8 @@ class RegisterForm extends Form {
 
     schema = {
         username: Joi.string().required().label("Username"),
-        email: Joi.string().required().label("Email"),
-        password: Joi.string().required().label("Password")
+        email: Joi.email().required().label("Email"),
+        password: Joi.min(5).required().label("Password")
     }
 
     doSubmit = () => {
@@ -24,7 +24,7 @@ class RegisterForm extends Form {
 
     render() {
         return (
-            <div className="container loginForm">
+            <div className="container appForm">
                 	<div className="">
 	                  	<div className="card-section border rounded p-3">
 	                  		<div className="card-header-register pb-5">
@@ -32,10 +32,10 @@ class RegisterForm extends Form {
 	                  		</div>
 	                    	<div className="card-body">
                                   <form onSubmit={this.handleSubmit}>
-                                    {this.renderInput("username", "Username")}
-                                    {this.renderInput("email", "Email")}
-                                    {this.renderInput("password", "Password", "password")}
-                                    {this.renderButton("Register")}
+                                    {this.renderInput("username", "Username", "register-label")}
+                                    {this.renderInput("email", "Email", "register-label")}
+                                    {this.renderInput("password", "Password", "register-label", "password")}
+                                    {this.renderButton("Register", " register-button")}
                                     <hr />
                                     <p>
                                         <span className="card-text">Already a member?</span>

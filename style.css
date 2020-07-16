@@ -1,7 +1,18 @@
+:root {
+    /* Navbar's color */
+    --clr-lightBlue: #5fdde5;
+    /* Feature icons' color */
+    --clr-darkerBlue: #01C2CB;
+    --clr-lightOrange: #ffbd69;
+    --clr-darkOrange: #f37121;
+    --ff-formText: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+
 /* Navbar */
 
 .navbar {
-    background-color: #5fdde5;
+    background-color: var(--clr-lightBlue);
 }
 
 .nav-link {
@@ -39,10 +50,6 @@ img:hover {
     cursor: pointer;
 }
 
-body {
-    max-height: 100vh;
-}
-
 /* Jumbotron */
 
 .jumbotron {
@@ -62,26 +69,34 @@ body {
     width: 10rem;
 }
 
-/* loginForm */
+/* appForm */
 
-.loginForm {
+.appForm {
     margin-top: 5%;
     width: 30% !important;
 }
 
-.loginForm h1 {
-    color: #00C2CB;
-    font-weight: 600 !important;
-}
-
 label {
     font-weight: 500;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    color: rgb(95,221,229);
+    font-family: var(--ff-formText);
 }
 
-button .btn .btn-primary {
+.login-label {
+    color: var(--clr-lightBlue) !important;
+}
+
+.register-label {
+    color: var(--clr-lightOrange) !important;
+}
+
+.login-button {
     background-color: #00C2CB !important;
+    color: white !important;
+}
+
+.register-button {
+    background-color: var(--clr-lightOrange) !important;
+    color: white !important;
 }
 
 .card-section {
@@ -99,7 +114,7 @@ button .btn .btn-primary {
 .card-header-register {
     margin-top: -40px;
     height: 5rem;
-    background: linear-gradient(-90deg, #f37121, #ffbd69);
+    background: linear-gradient(-90deg, var(--clr-darkOrange), var(--clr-lightOrange));
     box-shadow: 1px 5px 15px #a2a2a2;
     border-radius: 0.8rem;
 }
@@ -108,10 +123,10 @@ button .btn .btn-primary {
     margin-left: 1rem;
 }
 
-.btn-primary {
+/* .btn-primary {
     background-color: rgb(95,221,229) !important;
     border-color: rgb(110, 228, 236)!important;
-}
+} */
 
 .btn .btn-primary:focus, .btn .btn-primary:active {
     outline: none !important

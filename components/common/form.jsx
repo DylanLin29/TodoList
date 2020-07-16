@@ -57,21 +57,23 @@ class Form extends Component {
         this.setState({ data, errors });
     }
 
-    renderButton = (label) => {
+    renderButton = (label, buttonColor="") => {
+        const buttonClass = "btn" + buttonColor;
         return (
-            <button className="btn btn-primary" disabled={this.validate()}>
+            <button className={buttonClass} disabled={this.validate()}>
                 {label}
             </button>
         );
     }
 
-    renderInput = (name, label, type = "text") => {
+    renderInput = (name, label, labelClass = "", type = "text") => {
         const { data, errors } = this.state;
         return (
             <Input
                 type={type}
                 name={name}
                 label={label}
+                labelClass={labelClass}
                 value={data[name]}
                 onChange={this.handleChange}
                 error={errors[name]}

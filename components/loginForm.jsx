@@ -5,14 +5,14 @@ class LoginForm extends Form {
 
     state = {
         data: {
-            username: "",
+            email: "",
             password: ""
         },
         errors: {}
     }
 
     schema = {
-        username: Joi.string().required().label("Username"),
+        email: Joi.string().required().label("Email"),
         password: Joi.string().required().label("Password")
     };
 
@@ -32,7 +32,7 @@ class LoginForm extends Form {
                     </div>
                     <div className="card-body">
                         <form onSubmit={this.handleSubmit}>
-                            {this.renderInput("username", "Username", "login-label")}
+                            {this.renderInput("email", "Email", "login-label")}
                             {this.renderInput("password", "Password", "login-label", "password")}
                             {this.renderButton("Login", " login-button")}
                             <hr />

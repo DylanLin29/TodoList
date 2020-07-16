@@ -42,8 +42,8 @@
 }
 
 img:nth-child(2) {
-    padding-left: 10rem;
-    padding-right: 10rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
 }
 
 img:hover {

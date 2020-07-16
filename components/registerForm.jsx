@@ -12,9 +12,9 @@ class RegisterForm extends Form {
     }
 
     schema = {
-        username: Joi.string().required().label("Username"),
-        email: Joi.email().required().label("Email"),
-        password: Joi.min(5).required().label("Password")
+        username: Joi.string().min(5).required().label("Username"),
+        email: Joi.string().email().min(5).required().label("Email"),
+        password: Joi.string().min(5).required().label("Password")
     }
 
     doSubmit = () => {

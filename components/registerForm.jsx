@@ -1,6 +1,27 @@
-import { Component } from 'react';
+import Joi from "joi-browser";
+import Form from "../components/common/form";
+class RegisterForm extends Form {
+    
+    state = {
+        data: {
+            username: "",
+            email: "",
+            password: ""
+        },
+        errors: {}
+    }
 
-class RegisterForm extends Component {
+    schema = {
+        username: Joi.string().required().label("Username"),
+        email: Joi.string().required().label("Email"),
+        password: Joi.string().required().label("Password")
+    }
+
+    doSubmit = () => {
+        // Call the server
+        console.log("Submitted");
+    }
+
     render() {
         return (
             <div className="container loginForm">
@@ -10,20 +31,11 @@ class RegisterForm extends Component {
 		                      	<h2 className="card-header-title text-white pt-3">Register</h2>
 	                  		</div>
 	                    	<div className="card-body">
-                                  <form>
-                                    <div className="form-group">
-                                        <label htmlFor="username">Username</label>
-                                        <input id="username" type="text" className="form-control"/>
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="email">Email</label>
-                                        <input id="email" type="text" className="form-control"/>
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="password">Password</label>
-                                        <input id="password" type="text" className="form-control"/>
-                                    </div>
-                                    <button className="btn btn-primary">Login</button>
+                                  <form onSubmit={this.handleSubmit}>
+                                    {this.renderInput("username", "Username")}
+                                    {this.renderInput("email", "Email")}
+                                    {this.renderInput("password", "Password", "password")}
+                                    {this.renderButton("Register")}
                                     <hr />
                                     <p>
                                         <span className="card-text">Already a member?</span>

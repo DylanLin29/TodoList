@@ -1,7 +1,8 @@
 import Joi from "joi-browser";
-import Form from "../components/common/form";
+const axios = require("axios");
+import Form from "./common/form";
+import Router from "next/router";
 class RegisterForm extends Form {
-    
     state = {
         data: {
             username: "",
@@ -17,9 +18,11 @@ class RegisterForm extends Form {
         password: Joi.string().min(5).required().label("Password")
     }
 
-    doSubmit = () => {
+    doSubmit = async () => {
         // Call the server
+        const res = await axios.post("/api/users", this.state.data);
         console.log("Submitted");
+        Router.push("/");
     }
 
     render() {

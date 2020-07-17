@@ -123,11 +123,6 @@ label {
     margin-left: 1rem;
 }
 
-/* .btn-primary {
-    background-color: rgb(95,221,229) !important;
-    border-color: rgb(110, 228, 236)!important;
-} */
-
 .btn .btn-primary:focus, .btn .btn-primary:active {
     outline: none !important
 }
@@ -150,4 +145,47 @@ a:hover {
 
 .error-label {
     font-size: small !important;
+}
+
+/* Todolist Page */
+.create {
+    background-color: var(--clr-darkerBlue) !important;
+    color: white !important;
+    /* margin: 10% 50% auto !important; */
+}
+
+.note-popup-background {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7) !important;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.note {
+    width: 40rem;
+    height: 25rem;
+    background-color: white;
+    border-radius: 1rem;
+    margin-top: 10%;
+    position: relative;
+    padding: 2rem;
+}
+
+.noteHide {
+    display: none;
+}
+
+.note-title {
+    font-family: var(--ff-formText);
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--clr-darkerBlue);
+}
+
+.create-button-container {
+    text-align: center;
+    padding-top: 6rem;
 }

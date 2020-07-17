@@ -1,4 +1,4 @@
-import { User } from "../../../models/user";
+const { User } = require("../../../models/user");
 import dbConnect from "../../../utils/dbConnect";
 const _ = require("lodash");
 const bcrypt = require("bcrypt");

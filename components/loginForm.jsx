@@ -1,5 +1,7 @@
 import Joi from "joi-browser";
 import Form from "../components/common/form";
+import { Router } from "next/router";
+const axios = require("axios");
 
 class LoginForm extends Form {
 
@@ -19,7 +21,14 @@ class LoginForm extends Form {
 
     doSubmit = () => {
         // Call the server
-        console.log("Submitted");
+        try {
+            const res = await axios.post("/api/users", this.state.data);
+            console.log(res);
+            console.log("Submitted");
+            Router.push("/");
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     render() {

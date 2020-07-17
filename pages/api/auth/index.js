@@ -1,4 +1,5 @@
-const { User } = require("../../../models/user");
+import User from "../../../models/User";
+import { validateLoginUser } from "../../../utils/validate";
 import dbConnect from "../../../utils/dbConnect";
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
@@ -8,7 +9,7 @@ const jwt = require("jsonwebtoken");
 dbConnect();
 
 export default async (req, res) => {
-    const { error } = validate(req.body);
+    const { error } = validateLoginUser(req.body);
     if (error) {
         return res.status(400).send(error.details[0].message);
     }
@@ -25,13 +26,6 @@ export default async (req, res) => {
 
     const token = jwt.sign({ _id: user._id }, process.env.JWT);
 
-    res.send(token);
+    res.json("Successfully logging in");
 }
 
-function validate(user) {
-    const schema = {
-        email: Joi.string().min(5).max(255).required().email(),
-        password: Joi.string().min(5).max(255).required()
-    }
-    return Joi.validate(user, schema);
-}

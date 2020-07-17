@@ -1,4 +1,5 @@
-const { User, validate } = require("../../../models/User");
+import User from "../../../models/User";
+import { validateRegisterUser } from "../../../utils/validate";
 import dbConnect from "../../../utils/dbConnect";
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
@@ -8,7 +9,7 @@ import cookie from "cookie";
 dbConnect();
 
 export default async (req, res) => {
-    const { error } = validate(req.body);
+    const { error } = validateRegisterUser(req.body);
     if (error) {
         return res.status(400).json(error.details[0].message);
     }
@@ -16,7 +17,7 @@ export default async (req, res) => {
     // Check if the user already exists (registered)
     const user = await User.findOne({ email: req.body.email });
     if (user) {
-        return res.status(400).json("User already registered.");
+        return res.status(400).json({ message: "User already registered." });
     }
 
     // If the user is not existed, create another user and 
@@ -39,5 +40,5 @@ export default async (req, res) => {
         maxAge: 3600,
         path: '/'
     }));
-    res.json(_.pick(newUser, ['_id', 'username', 'email']));
+    res.status(200).json({ message: "Successfully Registered!" });
 }

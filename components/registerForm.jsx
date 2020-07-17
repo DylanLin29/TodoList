@@ -2,6 +2,7 @@ import Joi from "joi-browser";
 const axios = require("axios");
 import Form from "./common/form";
 import Router from "next/router";
+import fetch from "isomorphic-unfetch";
 class RegisterForm extends Form {
     state = {
         data: {
@@ -21,6 +22,7 @@ class RegisterForm extends Form {
     doSubmit = async () => {
         // Call the server
         const res = await axios.post("/api/users", this.state.data);
+        console.log(res.data.message);
         console.log("Submitted");
         Router.push("/");
     }

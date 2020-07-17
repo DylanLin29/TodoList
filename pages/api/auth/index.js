@@ -1,4 +1,4 @@
-import User from "../../../models/User";
+import User from "../../../models/user";
 import { validateLoginUser } from "../../../utils/validate";
 import dbConnect from "../../../utils/dbConnect";
 const _ = require("lodash");

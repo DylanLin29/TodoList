@@ -19,7 +19,7 @@ class LoginForm extends Form {
     };
 
 
-    doSubmit = () => {
+    doSubmit =  async() => {
         // Call the server
         try {
             const res = await axios.post("/api/users", this.state.data);

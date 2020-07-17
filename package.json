@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p $PORT",
+    "setup": "node ./setup_now.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
@@ -17,6 +18,7 @@
     "cookie": "^0.4.1",
     "dotenv": "^8.2.0",
     "font-awesome": "^4.7.0",
+    "heroku-dotenv": "^0.4.1",
     "install": "^0.13.0",
     "isomorphic-unfetch": "^3.0.0",
     "joi": "^14.3.1",

@@ -2,6 +2,8 @@ import Navbar from "../components/navbar";
 import { Button } from "semantic-ui-react";
 import { Component } from "react";
 import NoteForm from "../components/noteForm";
+import auth from "../middlewares/auth";
+import Router from "next/router";
 
 class Todo extends Component {
     state = {
@@ -40,3 +42,12 @@ class Todo extends Component {
     }
 }
 export default Todo;
+
+export async function getStaticProps(context) {
+    const { req, res } = context;
+    try {
+        await auth(req, res);
+    } catch(e) {
+        return { props: {} }
+    }
+}

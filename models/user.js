@@ -34,5 +34,5 @@ function validateUser(user) {
     return Joi.validate(user, schema);
 }
 
-module.exports.User = mongoose.model.User || User;
+module.exports.User = mongoose.models.User || User;
 module.exports.validate = validateUser;

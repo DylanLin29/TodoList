@@ -22,10 +22,14 @@ class RegisterForm extends Form {
         password: Joi.string().min(5).required().label("Password")
     }
 
-    doSubmit = async () => {
+    doSubmit = async() => {
         // Call the server
-        const { data } = await axios.post("https://dylan-todolist.herokuapp.com/api/users", this.state.data);
-        data.success ? Router.push("/") : this.setState({ response: data });
+        try {
+            await axios.post("/api/users", this.state.data);
+            Router.push("/");
+        } catch (err) {
+            this.setState({ response: err.response.data });
+        }
     }
 
     render() {

@@ -5,7 +5,11 @@ import Input from "./formInput";
 class Form extends Component {
     state = { 
         data: {},
-        errors: {}
+        errors: {},
+        response: {
+            success: true,
+            message: ""
+        }
     }
 
     validateProperty = ({ name, value }) => {
@@ -43,6 +47,8 @@ class Form extends Component {
     }
 
     handleChange = ({ currentTarget: input }) => {
+        this.setState({ response: { success: true, message: "" } });
+
         const errors = {...this.state.errors};
         const errorMessage = this.validateProperty(input);
         if (errorMessage) {
@@ -66,7 +72,7 @@ class Form extends Component {
         );
     }
 
-    renderInput = (name, label, labelClass = "", type = "text") => {
+    renderInput = (name, label, labelClass = "", type = "text", error = "") => {
         const { data, errors } = this.state;
         return (
             <Input
@@ -76,7 +82,7 @@ class Form extends Component {
                 labelClass={labelClass}
                 value={data[name]}
                 onChange={this.handleChange}
-                error={errors[name]}
+                error={ error || errors[name]}
             />
         );
     }

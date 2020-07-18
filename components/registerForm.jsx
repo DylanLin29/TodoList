@@ -2,7 +2,7 @@ import Joi from "joi-browser";
 const axios = require("axios");
 import Form from "./common/form";
 import Router from "next/router";
-import fetch from "isomorphic-unfetch";
+import { Label } from 'semantic-ui-react';
 class RegisterForm extends Form {
     state = {
         data: {
@@ -10,7 +10,11 @@ class RegisterForm extends Form {
             email: "",
             password: ""
         },
-        errors: {}
+        errors: {},
+        response: {
+            success: true,
+            message: ""
+        }
     }
 
     schema = {
@@ -21,13 +25,12 @@ class RegisterForm extends Form {
 
     doSubmit = async () => {
         // Call the server
-        const res = await axios.post("/api/users", this.state.data);
-        console.log(res.data.message);
-        console.log("Submitted");
-        Router.push("/");
+        const { data } = await axios.post("/api/users", this.state.data);
+        data.success ? Router.push("/") : this.setState({ response: data });
     }
 
     render() {
+        const { success, message } = this.state.response;
         return (
             <div className="container appForm">
                 	<div className="">
@@ -38,7 +41,7 @@ class RegisterForm extends Form {
 	                    	<div className="card-body">
                                   <form onSubmit={this.handleSubmit}>
                                     {this.renderInput("username", "Username", "register-label")}
-                                    {this.renderInput("email", "Email", "register-label")}
+                                    {this.renderInput("email", "Email", "register-label", undefined, success ? undefined : message)}
                                     {this.renderInput("password", "Password", "register-label", "password")}
                                     {this.renderButton("Register", " register-button")}
                                     <hr />

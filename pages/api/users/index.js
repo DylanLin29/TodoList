@@ -40,5 +40,5 @@ export default async (req, res) => {
         maxAge: 3600,
         path: '/'
     }));
-    res.status(200).json({ success: true, message: "Successfully Registered!" });
+    return res.status(200).json({ success: true, message: "Successfully Registered!" });
 }

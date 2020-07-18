@@ -24,7 +24,7 @@ class RegisterForm extends Form {
 
     doSubmit = async () => {
         // Call the server
-        const { data } = await axios.post("/api/users", this.state.data);
+        const { data } = await axios.post("https://dylan-todolist.herokuapp.com/api/users", this.state.data);
         data.success ? Router.push("/") : this.setState({ response: data });
     }
 

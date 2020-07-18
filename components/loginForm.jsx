@@ -1,6 +1,6 @@
 import Joi from "joi-browser";
 import Form from "../components/common/form";
-import { Router } from "next/router";
+import Router from "next/router";
 import { Button } from "semantic-ui-react";
 const axios = require("axios");
 
@@ -24,21 +24,21 @@ class LoginForm extends Form {
     };
 
 
-    doSubmit =  async() => {
+    doSubmit =  async () => {
         // Call the server
         try {
-            const res = await axios.post("/api/users", this.state.data);
-            console.log("Submitted");
+            await axios.post("/api/auth", this.state.data);
             Router.push("/");
         } catch (err) {
             if(err.response.status === 400) {
+                console.log(err.response.data);
                 this.setState({ response: err.response.data });
             }
         }
     }
 
     render() {
-
+        const { success, message } = this.state.response;
         return (
             <div className="container appForm">
                 <div className="card-section border rounded p-3">
@@ -48,9 +48,9 @@ class LoginForm extends Form {
                     <div className="card-body">
                         <form onSubmit={this.handleSubmit}>
                             {
-                                !this.state.response.success &&
+                                !success &&
                                 <div className="login-warning-wrapper">
-                                    <Button negative className="login-warning">Invalid email or password</Button>
+                                    <Button negative className="login-warning">{message}</Button>
                                 </div>
                             }
                             {this.renderInput("email", "Email", "login-label")}

@@ -2,7 +2,6 @@ import Joi from "joi-browser";
 const axios = require("axios");
 import Form from "./common/form";
 import Router from "next/router";
-import { Label } from 'semantic-ui-react';
 class RegisterForm extends Form {
     state = {
         data: {

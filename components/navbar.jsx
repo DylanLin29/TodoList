@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faListAlt } from '@fortawesome/free-solid-svg-icons'
-const Navbar = () => {
+import cookie from "cookie";
+const Navbar = ({ authenticated }) => {
     return (
         <nav className="navbar navbar-expand-lg">
             <a className="navbar-brand" href="/">
@@ -20,13 +21,23 @@ const Navbar = () => {
                 </li>
             </ul>
             <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                    <a className="nav-link" href="/login" >Login</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link register" href="/register">Register</a>
-                </li>
+                {
+                    !authenticated ? (
+                        <>
+                            <li className="nav-item">
+                                <a className="nav-link" href="/login" >Login</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link register" href="/register">Register</a>
+                            </li> 
+                        </> ) : (
+                            <li className="nav-item">
+                                <a className="nav-link" style={{cursor: "pointer"}}>Logout</a>
+                            </li>
+                    )
+                }
             </ul>
+
             </div>
         </nav>
     )

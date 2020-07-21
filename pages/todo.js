@@ -2,6 +2,7 @@ import Navbar from "../components/navbar";
 import { Button } from "semantic-ui-react";
 import { Component } from "react";
 import NoteForm from "../components/noteForm";
+import axios from "axios";
 import auth from "../middlewares/auth";
 import Router from "next/router";
 
@@ -43,11 +44,8 @@ class Todo extends Component {
 }
 export default Todo;
 
-export async function getStaticProps(context) {
-    const { req, res } = context;
-    try {
-        await auth(req, res);
-    } catch(e) {
-        return { props: {} }
-    }
+export async function getServerSideProps(req, res) {
+    // const { req, res } = context;
+   const { data }= await axios.get("http://localhost:3000/api/notes");
+    return { props: { notes: data } };
 }

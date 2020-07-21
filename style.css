@@ -3,6 +3,7 @@
     --clr-lightBlue: #5fdde5;
     /* Feature icons' color */
     --clr-darkerBlue: #01C2CB;
+    --clr-mediumBlue: #15ced8;
     --clr-lightOrange: #ffbd69;
     --clr-darkOrange: #f37121;
     --ff-formText: "Trebuchet MS", Helvetica, sans-serif;
@@ -166,7 +167,7 @@ a:hover {
 
 .note {
     width: 40rem;
-    height: 25rem;
+    height: 30rem;
     background-color: white;
     border-radius: 1rem;
     margin-top: 10%;
@@ -198,4 +199,23 @@ a:hover {
 .login-warning-wrapper {
     text-align: center;
     padding: 1rem;
+}
+
+.form-label {
+    color: var(--clr-lightBlue) !important;
+    font-weight: 500 !important;
+    font-size: 1.1rem;
+}
+
+.importance-buttons-group {
+    padding-bottom: 3rem;
+}
+
+.importance-button-select {
+    background-color: var(--clr-darkerBlue) !important;
+    color: white !important;
+}
+
+.importance-button:hover {
+    background-color: #E0E1E2 !important;
 }

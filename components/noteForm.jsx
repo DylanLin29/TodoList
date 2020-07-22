@@ -10,7 +10,8 @@ class NoteForm extends Form {
             title: "",
             description: "",
             importance: 3,
-            category: "Uncategorized"
+            category: "Uncategorized",
+            createDate: 0
         },
         errors: {},
         selectImportance: {
@@ -118,6 +119,7 @@ class NoteForm extends Form {
                     <Button 
                         color='blue'
                         className="note-button"
+                        onClick={() => this.props.handleCreate}
                         >Create</Button>
                 </form>
         );

@@ -33,12 +33,13 @@ class Todo extends Component {
                 <div className="notes">
                     <div className="card-wrapper">
                         {
-                            notes.map(({title, description, importance, category}, index) => {
+                            notes.map(({title, description, importance, category, _id}, index) => {
                                 return <Note 
                                     title={title} 
                                     description={description} 
                                     importance={importance} 
                                     category={category}
+                                    _id={_id}
                                     key={index}
                                 />
                             })

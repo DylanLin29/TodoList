@@ -48,7 +48,7 @@ img:nth-child(2) {
     margin-right: 10rem;
 }
 
-img:hover {
+.justify-content-md-center img:hover {
     cursor: pointer;
 }
 
@@ -232,9 +232,10 @@ a:hover {
 .card-wrapper {
     display: flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     align-content: center;
     padding: 2rem;
+    /* max-width: 70%; */
 }
 
 .card {
@@ -273,7 +274,16 @@ a:hover {
     font-weight: 500;
 }
 
-.job-title {
+.card-importance {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 3rem;
+    color: #ee1111
+}
+
+.card-date {
     color: #777;
     font-family: var(--ff-noteText);
     font-weight: 400;
@@ -308,4 +318,17 @@ a:hover {
 
 .fa-clipboard-check {
     color: #2485cf;
+}
+
+@media screen and (min-width: 60rem) {
+    .card-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card { 
+        margin: 2rem;
+    }
 }

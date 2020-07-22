@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { unique } = require('joi-browser');
 
 const noteSchema = new mongoose.Schema({
     title: {
@@ -17,6 +16,10 @@ const noteSchema = new mongoose.Schema({
     importance: {
         type: Number,
         required: false,
+    },
+    category: {
+        type: String,
+        required: true
     }
 });
 

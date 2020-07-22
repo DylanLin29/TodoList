@@ -1,7 +1,7 @@
 import Joi from "joi-browser";
 import axios from "axios";
 import Form from "../components/common/form";
-import { Button } from "semantic-ui-react"
+import { Button, Select } from "semantic-ui-react"
 
 class NoteForm extends Form {
 
@@ -9,7 +9,8 @@ class NoteForm extends Form {
         data: {
             title: "",
             description: "",
-            importance: 3
+            importance: 3,
+            category: "Uncategorized"
         },
         errors: {},
         selectImportance: {
@@ -65,15 +66,26 @@ class NoteForm extends Form {
         this.setState({ selectImportance: updateSelectImportance, data: updateData });
     }
 
+    handleSelect = (event, option) => {
+        const data = this.state.data;
+        data.category = option.value;
+        this.setState({ data });
+    }
+
     render() {
         const importanceLevel = [1,2,3];
+        const categoryOptions = [
+            { key: 'Home', value: 'Home', text: 'Home' },
+            { key: 'School', value: 'School', text: 'School' },
+            { key: 'Work', value: 'Work', text: 'Work' },
+        ];
         return (
                 <form onSubmit={this.handleSubmit}>
                     <p className="note-title">Todo</p>
                     <hr />
                     {this.renderInput("title", "Title", "login-label")}
                     {this.renderInput("description", "Description", "login-label")}
-                    <p className="form-label">Importance</p>
+                    <p className="form-label">Importance Level</p>
                     <Button.Group className="importance-buttons-group">
                         {
                             importanceLevel.map(index => {
@@ -89,7 +101,13 @@ class NoteForm extends Form {
                             })
                         }
                     </Button.Group>
-                    
+                    <p className="form-label">Category</p>
+                    <Select
+                        options={categoryOptions} 
+                        onChange={this.handleSelect} 
+                        className="note-select"
+                        placeholder="Select a Category"
+                    />
                     <br />
                     <Button 
                         color='red' 

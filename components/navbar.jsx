@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faListAlt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faListAlt } from '@fortawesome/free-solid-svg-icons';
 import cookie from "cookie";
 const Navbar = ({ authenticated }) => {
     return (
@@ -14,7 +14,7 @@ const Navbar = ({ authenticated }) => {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <a className="nav-link" href="/todo">ToDo<span className="sr-only">(current)</span></a>
+                    <a className="nav-link" href="/todo">Todo<span className="sr-only">(current)</span></a>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="/timeline">Timeline</a>

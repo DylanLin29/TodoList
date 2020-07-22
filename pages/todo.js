@@ -2,9 +2,9 @@ import Navbar from "../components/navbar";
 import { Button } from "semantic-ui-react";
 import { Component } from "react";
 import NoteForm from "../components/noteForm";
+import Note from "../components/note";
 import axios from "axios";
 import auth from "../middlewares/auth";
-import Router from "next/router";
 
 class Todo extends Component {
     state = {
@@ -17,6 +17,7 @@ class Todo extends Component {
     }
 
     render() {
+        const { notes } = this.props;
         return (
             <div>
                 <Navbar />
@@ -29,14 +30,29 @@ class Todo extends Component {
                     onClick={this.handleCreate}
                 />
                 </div>
+                <div className="notes">
+                    <div className="card-wrapper">
+                        {
+                            notes.map(({title, description, importance, category}, index) => {
+                                return <Note 
+                                    title={title} 
+                                    description={description} 
+                                    importance={importance} 
+                                    category={category}
+                                    key={index}
+                                />
+                            })
+                        }
+                    </div>
+                </div>
                 <div 
                     className={this.state.notePop ? 
                         "note-popup-background" : 
                         "note-popup-background noteHide"
                 }>
-                    <div className="note">
-                        <NoteForm handleCreate={this.handleCreate}/>
-                    </div>
+                <div className="note">
+                    <NoteForm handleCreate={this.handleCreate}/>
+                </div>
                 </div>
             </div>
         );
@@ -45,7 +61,6 @@ class Todo extends Component {
 export default Todo;
 
 export async function getServerSideProps(req, res) {
-    // const { req, res } = context;
-   const { data }= await axios.get("http://localhost:3000/api/notes");
-    return { props: { notes: data } };
+    const { data }= await axios.get("http://localhost:3000/api/notes");
+    return { props: { notes: data.notes } };
 }

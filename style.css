@@ -10,6 +10,13 @@
     --ff-noteText: "Roboto", sans-serif;
 }
 
+h1 {
+    cursor: default;
+}
+
+p {
+    cursor: default;
+}
 
 /* Navbar */
 
@@ -159,6 +166,7 @@ a:hover {
 .note-popup-background {
     width: 100%;
     height: 100%;
+    background-size: cover;
     background-color: rgba(0,0,0,0.7) !important;
     position: absolute;
     top: 0;
@@ -287,6 +295,16 @@ a:hover {
     color: #777;
     font-family: var(--ff-noteText);
     font-weight: 400;
+}
+
+.card-check {
+    top: 2rem;
+    right: 2rem;
+    position: absolute;
+}
+
+.fa-check {
+    color: #ee1111;
 }
 
 .flip-button {

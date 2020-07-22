@@ -27,14 +27,6 @@ class NoteForm extends Form {
         importance: Joi.number().optional()
     };
 
-
-    doSubmit = async() => {
-        // Call the server
-        await axios.post("/api/notes", this.state.data);
-        const { handleCreate } = this.props;
-        handleCreate();
-    }
-
     handleCancel = () => {
         const selectImportance = {
             1: false,
@@ -44,16 +36,18 @@ class NoteForm extends Form {
         const data = {
             title: "",
             description: "",
-            importance: 3
+            importance: 3,
+            category: "Uncategorized",
+            createDate: 0
         }
         this.setState({ errors: {}, selectImportance, data });
-        const { handleCreate } = this.props;
-        handleCreate();
+        this.props.handleOpenNote();
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.doSubmit();
+        this.props.handleCreate(this.state.data)
+        this.handleCancel();
     }
 
     handleClickImportance = (index) => {
@@ -119,7 +113,6 @@ class NoteForm extends Form {
                     <Button 
                         color='blue'
                         className="note-button"
-                        onClick={() => this.props.handleCreate}
                         >Create</Button>
                 </form>
         );

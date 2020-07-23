@@ -45,12 +45,15 @@ class Todo extends Component {
 		} catch (error) {
 			console.log(error);
 		}
-		this.setState({ deleteCard: true });
 	};
 
-	handleComplete = async (_id) => {
+	handleComplete = async (_id, status) => {
 		try {
-			await axios.put("http://localhost:3000/api/notes", { data: _id });
+			await axios.put("http://localhost:3000/api/notes", {
+				id: _id,
+				status: status,
+			});
+			this.getTodos();
 		} catch (error) {
 			console.log(error);
 		}
@@ -80,6 +83,7 @@ class Todo extends Component {
 									importance,
 									category,
 									_id,
+									check,
 								},
 								index
 							) => {
@@ -91,7 +95,9 @@ class Todo extends Component {
 										category={category}
 										_id={_id}
 										key={index}
+										check={check}
 										handleDelete={this.handleDelete}
+										handleComplete={this.handleComplete}
 									/>
 								);
 							}

@@ -6,6 +6,11 @@
 	--clr-mediumBlue: #15ced8;
 	--clr-lightOrange: #ffbd69;
 	--clr-darkOrange: #f37121;
+	/* Card color */
+	--clr-doneBlue: #2485cf;
+	--clr-importanceBlue: #0962a7;
+	--clr-undoRed: #ff5757;
+	--clr-importanceRed: #ee1111;
 	--ff-formText: "Trebuchet MS", Helvetica, sans-serif;
 	--ff-noteText: "Roboto", sans-serif;
 }
@@ -109,18 +114,13 @@ label {
 }
 
 .card-section {
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16),
-		0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .card-header-login {
 	margin-top: -40px;
 	height: 5rem;
-	background: linear-gradient(
-		-90deg,
-		rgb(60, 211, 148),
-		rgb(95, 221, 229)
-	);
+	background: linear-gradient(-90deg, rgb(60, 211, 148), rgb(95, 221, 229));
 	box-shadow: 1px 5px 15px #a2a2a2;
 	border-radius: 0.8rem;
 }
@@ -272,7 +272,11 @@ a:hover {
 	height: 24rem;
 	object-fit: cover;
 	clip-path: polygon(0 0, 100% 0, 100% 20%, 0 50%);
-	background-color: #ff5757;
+	background-color: var(--clr-undoRed);
+}
+
+.card-complete {
+	background-color: var(--clr-doneBlue) !important;
 }
 
 .profile-img {
@@ -299,7 +303,11 @@ a:hover {
 	left: 2rem;
 	font-family: Impact, Charcoal, sans-serif;
 	font-size: 3rem;
-	color: #ee1111;
+	color: var(--clr-importanceRed);
+}
+
+.card-importance-complete {
+	color: var(--clr-importanceBlue);
 }
 
 .card-date {
@@ -308,7 +316,7 @@ a:hover {
 	font-weight: 400;
 }
 
-.card-check {
+/* .card-check {
 	top: 2rem;
 	right: 2rem;
 	position: absolute;
@@ -316,7 +324,7 @@ a:hover {
 
 .fa-check {
 	color: #ee1111;
-}
+} */
 
 .flip-button {
 	margin: 1rem auto !important;

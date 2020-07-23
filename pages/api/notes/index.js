@@ -39,6 +39,18 @@ export default async (req, res) => {
 			}
 			break;
 
+		case "PUT":
+			const { id, status } = req.body;
+			const beforeUpdate = await Note.findByIdAndUpdate(id, {
+				check: status,
+			});
+			if (beforeUpdate) {
+				res.status(200).json({ success: true });
+			} else {
+				res.status(400).json({ success: false });
+			}
+			break;
+
 		default:
 			res.status(400).json({ success: false });
 	}

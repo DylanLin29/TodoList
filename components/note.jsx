@@ -7,7 +7,6 @@ import {
 	faSpinner,
 	faCheck,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
 
 const Note = ({
 	title,
@@ -16,30 +15,32 @@ const Note = ({
 	category,
 	_id,
 	handleDelete,
+	handleComplete,
+	check,
 }) => {
-	const [check, setCheck] = useState(false);
-
-	const handleCheck = () => {
-		setCheck(true);
-	};
-
-	const handleUnCheck = () => {
-		setCheck(false);
-	};
-
 	return (
 		<div className="card-wrapper">
 			<div className="card">
-				<div className="card-img" />
+				<div
+					className={check ? "card-img card-complete" : "card-img"}
+				/>
 				<img src={`images/${category}.png`} className="profile-img" />
-				<p className="card-importance">{importance}</p>
-				{check && (
+				<p
+					className={
+						check
+							? "card-importance card-importance-complete"
+							: "card-importance"
+					}
+				>
+					{importance}
+				</p>
+				{/* {check && (
 					<FontAwesomeIcon
 						className="card-check"
 						icon={faCheck}
 						size="2x"
 					/>
-				)}
+				)} */}
 				<h1>{title}</h1>
 				<p className="card-date">Deadline</p>
 				<Button primary className="flip-button">
@@ -49,10 +50,10 @@ const Note = ({
 					<li onClick={() => handleDelete(_id)}>
 						<FontAwesomeIcon icon={faTrash} size="lg" />
 					</li>
-					<li onClick={() => handleCheck()}>
+					<li onClick={() => handleComplete(_id, true)}>
 						<FontAwesomeIcon icon={faClipboardCheck} size="lg" />
 					</li>
-					<li onClick={() => handleUnCheck()}>
+					<li onClick={() => handleComplete(_id, false)}>
 						<FontAwesomeIcon icon={faSpinner} size="lg" />
 					</li>
 				</ul>

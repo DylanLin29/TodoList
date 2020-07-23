@@ -21,6 +21,10 @@ const noteSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	check: {
+		type: Boolean,
+		required: true,
+	},
 });
 
 module.exports = mongoose.models.Note || mongoose.model("Note", noteSchema);

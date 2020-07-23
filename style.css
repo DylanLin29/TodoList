@@ -262,6 +262,7 @@ a:hover {
     height: 24rem;
     object-fit: cover;
     clip-path: polygon(0 0, 100% 0, 100% 20%, 0 50%);
+    background-color: #FF5757;
 }
 
 .profile-img {

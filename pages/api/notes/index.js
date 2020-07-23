@@ -16,7 +16,7 @@ export default async (req, res) => {
       }
       break;
 
-    case "POST": 
+    case "POST":
       try {
         await Note.create(req.body);
         res.status(201).json({ success: true });
@@ -26,20 +26,20 @@ export default async (req, res) => {
       }
       break;
 
-    case "DELETE": 
-    try{
-      const deletedNote = await Note.deleteOne({ _id: req.body });
+    case "DELETE":
+      try {
+        const deletedNote = await Note.deleteOne({ _id: req.body });
 
-      if (!deletedNote) {
-        return res.status(400).json({ success: false });
-      }
-      res.status(200).json({ success: true, data: {} });
+        if (!deletedNote) {
+          return res.status(400).json({ success: false });
+        }
+        res.status(200).json({ success: true, data: {} });
       } catch (error) {
         res.status(400).json({ success: false });
       }
       break;
 
-    default: 
+    default:
       res.status(400).json({ success: false });
   }
-}
+};

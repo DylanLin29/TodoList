@@ -1,7 +1,7 @@
 import Navbar from "../components/navbar";
 
 const Timeline = () => {
-  return <Navbar />;
+	return <Navbar />;
 };
 
 export default Timeline;

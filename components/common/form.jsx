@@ -46,7 +46,6 @@ class Form extends Component {
 		this.setState({ response: { success: true, message: "" } });
 
 		const errors = { ...this.state.errors };
-		console.log(errors);
 		const errorMessage = this.validateProperty(input);
 		if (errorMessage) {
 			if (errorMessage.includes("pattern")) {
@@ -75,7 +74,14 @@ class Form extends Component {
 		);
 	};
 
-	renderInput = (name, label, labelClass = "", type = "text", error = "") => {
+	renderInput = (
+		name,
+		label,
+		labelClass = "",
+		type = "text",
+		error = "",
+		placeHolder = ""
+	) => {
 		const { data, errors } = this.state;
 		return (
 			<Input
@@ -86,6 +92,7 @@ class Form extends Component {
 				value={data[name]}
 				onChange={this.handleChange}
 				error={error || errors[name]}
+				placeHolder={placeHolder}
 			/>
 		);
 	};

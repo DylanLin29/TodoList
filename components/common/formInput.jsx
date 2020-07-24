@@ -8,6 +8,7 @@ const FormInput = ({
 	type,
 	labelClass,
 	onChange,
+	placeHolder,
 }) => {
 	return (
 		<div className="form-group">
@@ -21,6 +22,7 @@ const FormInput = ({
 				onChange={onChange}
 				id={name}
 				className="form-control"
+				placeholder={placeHolder}
 			/>
 			{error && (
 				<Label basic color="red" pointing className="error-label">

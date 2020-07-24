@@ -16,6 +16,7 @@ const Note = ({
 	handleDelete,
 	handleComplete,
 	check,
+	date,
 }) => {
 	return (
 		<div className="card-wrapper">
@@ -35,7 +36,8 @@ const Note = ({
 					<FontAwesomeIcon className="card-check" icon={faCheck} size="2x" />
 				)}
 				<h1>{title}</h1>
-				<p className="card-date">Deadline</p>
+				{/* <p className="card-date">Date</p> */}
+				<p className="card-date">{date}</p>
 				<Button primary className="flip-button">
 					Flip
 				</Button>

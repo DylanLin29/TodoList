@@ -17,6 +17,7 @@ class Todo extends Component {
 
 	getTodos = async () => {
 		const { data } = await axios.get("http://localhost:3000/api/notes");
+		console.log(data);
 		this.setState({ todos: data.notes });
 	};
 
@@ -77,14 +78,7 @@ class Todo extends Component {
 					<div className="card-wrapper">
 						{todos.map(
 							(
-								{
-									title,
-									description,
-									importance,
-									category,
-									_id,
-									check,
-								},
+								{ title, description, importance, category, _id, check, date },
 								index
 							) => {
 								return (
@@ -98,6 +92,7 @@ class Todo extends Component {
 										check={check}
 										handleDelete={this.handleDelete}
 										handleComplete={this.handleComplete}
+										date={date}
 									/>
 								);
 							}

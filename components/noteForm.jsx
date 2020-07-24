@@ -32,7 +32,7 @@ class NoteForm extends Form {
 		createDate: Joi.number().required(),
 		check: Joi.boolean().required(),
 		date: Joi.string()
-			.regex(/(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d/)
+			.regex(/(0[1-9]|1[012])[-.](0[1-9]|[12][0-9]|3[01])[-.](19|20)\d\d/)
 			.allow(""),
 	};
 
@@ -49,6 +49,7 @@ class NoteForm extends Form {
 			category: "Uncategorized",
 			createDate: 0,
 			check: false,
+			date: "",
 		};
 		this.setState({ errors: {}, selectImportance, data });
 		this.props.handleOpenNote();
@@ -82,13 +83,6 @@ class NoteForm extends Form {
 		this.setState({ data: data, selectOpen: false });
 	};
 
-	// handleDateChange = (date) => {
-	// 	const data = { ...this.state.data };
-	// 	data.date = date;
-	// 	this.setState({ data });
-	// 	console.log(this.state.data.date);
-	// };
-
 	render() {
 		const importanceLevel = [1, 2, 3];
 		const categoryOptions = [
@@ -104,7 +98,14 @@ class NoteForm extends Form {
 						<hr />
 						{this.renderInput("title", "Title", "login-label")}
 						{this.renderInput("description", "Description", "login-label")}
-						{this.renderInput("date", "Date", "login-label")}
+						{this.renderInput(
+							"date",
+							"Date",
+							"login-label",
+							"text",
+							"",
+							"mm-dd-yyyy"
+						)}
 						<p className="form-label">Importance Level</p>
 						<Button.Group className="importance-buttons-group">
 							{importanceLevel.map((index) => {

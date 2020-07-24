@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Button } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -21,9 +20,7 @@ const Note = ({
 	return (
 		<div className="card-wrapper">
 			<div className="card">
-				<div
-					className={check ? "card-img card-complete" : "card-img"}
-				/>
+				<div className={check ? "card-img card-complete" : "card-img"} />
 				<img src={`images/${category}.png`} className="profile-img" />
 				<p
 					className={
@@ -34,13 +31,9 @@ const Note = ({
 				>
 					{importance}
 				</p>
-				{/* {check && (
-					<FontAwesomeIcon
-						className="card-check"
-						icon={faCheck}
-						size="2x"
-					/>
-				)} */}
+				{check && (
+					<FontAwesomeIcon className="card-check" icon={faCheck} size="2x" />
+				)}
 				<h1>{title}</h1>
 				<p className="card-date">Deadline</p>
 				<Button primary className="flip-button">

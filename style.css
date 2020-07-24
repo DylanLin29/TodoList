@@ -167,6 +167,7 @@ a:hover {
 }
 
 /* Todolist Page */
+
 .create {
 	background-color: var(--clr-darkerBlue) !important;
 	color: white !important;
@@ -185,19 +186,24 @@ a:hover {
 	z-index: 999;
 }
 
-.note {
-	width: 40rem;
-	height: 40rem;
-	background-color: white;
-	border-radius: 1rem;
-	margin-top: 5rem;
-	position: relative;
-	padding: 2rem;
-	z-index: 999;
+.note-form {
+	box-shadow: none !important;
+	width: 40rem !important;
+	text-align: left !important;
+	border-radius: 1rem !important;
+	top: 20rem;
+}
+
+.note-form .card-body {
+	width: 38rem;
 }
 
 .note-select {
 	margin-bottom: 1rem !important;
+}
+
+.select-open {
+	margin-bottom: 9rem !important;
 }
 
 .noteHide {
@@ -249,9 +255,10 @@ a:hover {
 /* Front */
 .card-wrapper {
 	display: flex;
-	align-items: center;
-	flex-direction: column;
-	align-content: center;
+	align-items: flex-end;
+	align-items: stretch;
+	/* flex-direction: row; */
+	/* align-content: center; */
 	padding: 2rem;
 	/* max-width: 70%; */
 }
@@ -264,6 +271,7 @@ a:hover {
 	align-items: center;
 	justify-content: center;
 	margin: 2rem 0;
+	text-align: center;
 	box-shadow: 0.5rem 0.5rem 0.3rem rgba(0, 0, 0, 0.2);
 }
 
@@ -316,15 +324,15 @@ a:hover {
 	font-weight: 400;
 }
 
-/* .card-check {
+.card-check {
 	top: 2rem;
 	right: 2rem;
 	position: absolute;
 }
 
 .fa-check {
-	color: #ee1111;
-} */
+	color: white;
+}
 
 .flip-button {
 	margin: 1rem auto !important;

@@ -2,7 +2,7 @@ import Joi from "joi-browser";
 import axios from "axios";
 import Form from "../components/common/form";
 import { Button, Select } from "semantic-ui-react";
-import { set } from "lodash";
+import DatePicker from "react-datepicker";
 
 class NoteForm extends Form {
 	state = {
@@ -13,6 +13,7 @@ class NoteForm extends Form {
 			category: "Uncategorized",
 			createDate: 0,
 			check: false,
+			date: "",
 		},
 		errors: {},
 		selectImportance: {
@@ -24,12 +25,15 @@ class NoteForm extends Form {
 	};
 
 	schema = {
-		title: Joi.string().required().min(3).max(50).label("Title"),
+		title: Joi.string().required().min(3).max(15).label("Title"),
 		description: Joi.string().required().min(5).max(255).label("Description"),
 		importance: Joi.number().optional(),
 		category: Joi.string().optional(),
 		createDate: Joi.number().required(),
 		check: Joi.boolean().required(),
+		date: Joi.string()
+			.regex(/(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d/)
+			.allow(""),
 	};
 
 	handleCancel = () => {
@@ -78,6 +82,13 @@ class NoteForm extends Form {
 		this.setState({ data: data, selectOpen: false });
 	};
 
+	// handleDateChange = (date) => {
+	// 	const data = { ...this.state.data };
+	// 	data.date = date;
+	// 	this.setState({ data });
+	// 	console.log(this.state.data.date);
+	// };
+
 	render() {
 		const importanceLevel = [1, 2, 3];
 		const categoryOptions = [
@@ -93,6 +104,7 @@ class NoteForm extends Form {
 						<hr />
 						{this.renderInput("title", "Title", "login-label")}
 						{this.renderInput("description", "Description", "login-label")}
+						{this.renderInput("date", "Date", "login-label")}
 						<p className="form-label">Importance Level</p>
 						<Button.Group className="importance-buttons-group">
 							{importanceLevel.map((index) => {

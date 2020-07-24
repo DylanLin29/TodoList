@@ -186,12 +186,16 @@ a:hover {
 	z-index: 999;
 }
 
+[type="date"]::-webkit-calendar-picker-indicator {
+	display: none;
+}
+
 .note-form {
 	box-shadow: none !important;
 	width: 40rem !important;
 	text-align: left !important;
 	border-radius: 1rem !important;
-	top: 20rem;
+	top: 10rem;
 }
 
 .note-form .card-body {
@@ -199,11 +203,11 @@ a:hover {
 }
 
 .note-select {
-	margin-bottom: 1rem !important;
+	margin-bottom: 2rem !important;
 }
 
 .select-open {
-	margin-bottom: 9rem !important;
+	margin-bottom: 10rem !important;
 }
 
 .noteHide {

@@ -46,9 +46,16 @@ class Form extends Component {
 		this.setState({ response: { success: true, message: "" } });
 
 		const errors = { ...this.state.errors };
+		console.log(errors);
 		const errorMessage = this.validateProperty(input);
 		if (errorMessage) {
-			errors[input.name] = errorMessage;
+			if (errorMessage.includes("pattern")) {
+				errors[
+					input.name
+				] = `date" with value ${input.value} fails to match the required pattern: mm-dd-yyyy`;
+			} else {
+				errors[input.name] = errorMessage;
+			}
 		} else {
 			delete errors[input.name];
 		}

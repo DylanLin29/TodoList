@@ -1,5 +1,5 @@
 import Navbar from "../components/navbar";
-import { Button } from "semantic-ui-react";
+import { Button, Dropdown } from "semantic-ui-react";
 import { Component } from "react";
 import NoteForm from "../components/noteForm";
 import Note from "../components/note";
@@ -9,7 +9,19 @@ class Todo extends Component {
 	state = {
 		notePop: false,
 		todos: [],
+		sortOpen: false,
+		dropDownText: "Sort By",
 	};
+
+	sortOptions = [
+		{
+			key: "importance",
+			text: "Importance",
+		},
+		{ key: "category", text: "Category" },
+		{ key: "status", text: "Status" },
+		{ key: "date", text: "Date" },
+	];
 
 	componentDidMount() {
 		this.getTodos();
@@ -23,7 +35,7 @@ class Todo extends Component {
 
 	handleOpenNote = () => {
 		const notePop = !this.state.notePop;
-		this.setState({ notePop });
+		this.setState({ notePop, sortOpen: false });
 	};
 
 	handleCreate = async (data) => {
@@ -61,11 +73,17 @@ class Todo extends Component {
 	};
 
 	render() {
-		const { todos } = this.state;
+		const { todos, sortOpen, dropDownText, notePop } = this.state;
 		return (
 			<div>
 				<Navbar />
-				<div className="create-button-container">
+				<div
+					className={
+						sortOpen
+							? "create-button-container sortOpen"
+							: "create-button-container"
+					}
+				>
 					<Button
 						circular
 						icon="plus"
@@ -73,37 +91,69 @@ class Todo extends Component {
 						className="create"
 						onClick={this.handleOpenNote}
 					/>
+					<span></span>
+					<Dropdown
+						text={dropDownText}
+						floating
+						labeled
+						button
+						className="todo-sort-dropdown icon"
+						onClick={() => {
+							this.setState({ sortOpen: !sortOpen });
+						}}
+					>
+						<Dropdown.Menu>
+							{this.sortOptions.map(({ key, text }) => (
+								<Dropdown.Item
+									key={key}
+									onClick={() =>
+										this.setState({ dropDownText: text, sortOpen: false })
+									}
+								>
+									{text}
+								</Dropdown.Item>
+							))}
+						</Dropdown.Menu>
+					</Dropdown>
+					<Button
+						circular
+						icon="triangle up"
+						size="medium"
+						className="todo-controls"
+					/>
+					<Button
+						circular
+						icon="triangle down"
+						size="medium"
+						className="todo-controls"
+					/>
 				</div>
-				<div className="notes">
-					<div className="card-wrapper">
-						{todos.map(
-							(
-								{ title, description, importance, category, _id, check, date },
-								index
-							) => {
-								return (
-									<Note
-										title={title}
-										description={description}
-										importance={importance}
-										category={category}
-										_id={_id}
-										key={index}
-										check={check}
-										handleDelete={this.handleDelete}
-										handleComplete={this.handleComplete}
-										date={date}
-									/>
-								);
-							}
-						)}
-					</div>
+				<div className="card-wrapper">
+					{todos.map(
+						(
+							{ title, description, importance, category, _id, check, date },
+							index
+						) => {
+							return (
+								<Note
+									title={title}
+									description={description}
+									importance={importance}
+									category={category}
+									_id={_id}
+									key={index}
+									check={check}
+									handleDelete={this.handleDelete}
+									handleComplete={this.handleComplete}
+									date={date}
+								/>
+							);
+						}
+					)}
 				</div>
 				<div
 					className={
-						this.state.notePop
-							? "note-popup-background"
-							: "note-popup-background noteHide"
+						notePop ? "note-popup-background" : "note-popup-background noteHide"
 					}
 				>
 					<div className="note">

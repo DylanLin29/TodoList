@@ -1,8 +1,6 @@
 import Joi from "joi-browser";
-import axios from "axios";
 import Form from "../components/common/form";
 import { Button, Select } from "semantic-ui-react";
-import DatePicker from "react-datepicker";
 
 class NoteForm extends Form {
 	state = {

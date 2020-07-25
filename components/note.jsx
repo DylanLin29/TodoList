@@ -1,4 +1,3 @@
-import { Button } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faTrash,

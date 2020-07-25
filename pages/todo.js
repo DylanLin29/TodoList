@@ -4,6 +4,7 @@ import { Component } from "react";
 import NoteForm from "../components/noteForm";
 import Note from "../components/note";
 import axios from "axios";
+import sort from "../utils/sort";
 
 class Todo extends Component {
 	state = {
@@ -11,6 +12,8 @@ class Todo extends Component {
 		todos: [],
 		sortOpen: false,
 		dropDownText: "Sort By",
+		order: "asc",
+		sortCategory: "",
 	};
 
 	sortOptions = [
@@ -19,7 +22,7 @@ class Todo extends Component {
 			text: "Importance",
 		},
 		{ key: "category", text: "Category" },
-		{ key: "status", text: "Status" },
+		{ key: "check", text: "Status" },
 		{ key: "date", text: "Date" },
 	];
 
@@ -29,8 +32,12 @@ class Todo extends Component {
 
 	getTodos = async () => {
 		const { data } = await axios.get("http://localhost:3000/api/notes");
-		console.log(data);
-		this.setState({ todos: data.notes });
+		const sortTodos = sort(
+			data.notes,
+			this.state.sortCategory,
+			this.state.order
+		);
+		this.setState({ todos: sortTodos });
 	};
 
 	handleOpenNote = () => {
@@ -72,6 +79,26 @@ class Todo extends Component {
 		}
 	};
 
+	handleSortSelect = (key, text) => {
+		const { todos, order } = this.state;
+		const sortTodos = sort(todos, key, order);
+		this.setState({
+			todos: sortTodos,
+			sortCategory: key,
+			dropDownText: text,
+			sortOpen: false,
+		});
+	};
+
+	handleChangeOrder = (order) => {
+		const { todos, sortCategory } = this.state;
+		const sortTodos = sort(todos, sortCategory, order);
+		this.setState({
+			todos: sortTodos,
+			order: order,
+		});
+	};
+
 	render() {
 		const { todos, sortOpen, dropDownText, notePop } = this.state;
 		return (
@@ -101,14 +128,15 @@ class Todo extends Component {
 						onClick={() => {
 							this.setState({ sortOpen: !sortOpen });
 						}}
+						onBlur={() => {
+							this.setState({ sortOpen: false });
+						}}
 					>
 						<Dropdown.Menu>
 							{this.sortOptions.map(({ key, text }) => (
 								<Dropdown.Item
 									key={key}
-									onClick={() =>
-										this.setState({ dropDownText: text, sortOpen: false })
-									}
+									onClick={() => this.handleSortSelect(key, text)}
 								>
 									{text}
 								</Dropdown.Item>
@@ -120,12 +148,14 @@ class Todo extends Component {
 						icon="triangle up"
 						size="medium"
 						className="todo-controls"
+						onClick={() => this.handleChangeOrder("asc")}
 					/>
 					<Button
 						circular
 						icon="triangle down"
 						size="medium"
 						className="todo-controls"
+						onClick={() => this.handleChangeOrder("desc")}
 					/>
 				</div>
 				<div className="card-wrapper">

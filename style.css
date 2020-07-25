@@ -441,7 +441,7 @@ a:hover {
 	.card-wrapper {
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: flex-start;
 	}
 

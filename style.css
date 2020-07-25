@@ -298,7 +298,7 @@ a:hover {
 	margin-top: -20.5rem;
 	z-index: 999;
 	border-radius: 50%;
-	border: 1rem solid white;
+	border: 1.1rem solid white;
 }
 
 .card h1 {
@@ -369,12 +369,49 @@ a:hover {
 	color: #2485cf;
 }
 
+.fa-chevron-down {
+	cursor: pointer;
+	color: var(--clr-undoRed);
+}
+
+.card-arrow-complete {
+	color: var(--clr-doneBlue) !important;
+}
+
+.fa-chevron-up {
+	cursor: pointer;
+	color: var(--clr-undoRed);
+}
+
+.description-open {
+	margin-top: 2rem;
+	transition: 0.5s;
+}
+
+.description-close {
+	margin-top: -2rem;
+	transition: 0.5s;
+}
+
+.card-description-show {
+	opacity: 1;
+}
+
+.card-description-hide {
+	opacity: 0;
+}
+
+.card-description-show,
+.card-description-hide {
+	transition: opacity 0.4s;
+}
+
 @media screen and (min-width: 60rem) {
 	.card-wrapper {
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: center;
-		align-items: center;
+		align-items: flex-start;
 	}
 
 	.card {

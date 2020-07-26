@@ -1,21 +1,34 @@
 import Navbar from "../components/navbar";
 import TimelineCardLeft from "../components/common/timelineCardLeft";
 import TimelineCardRight from "../components/common/timelineCardRight";
+import { Component } from "react";
+import axios from "axios";
 
-const Timeline = () => {
-	return (
-		<>
-			<Navbar />
-			<div className="timeline">
-				<div className="timeline-cards">
-					<TimelineCardLeft direction="card-left" />
-					<TimelineCardRight direction="card-right" />
-					<TimelineCardLeft direction="card-left" />
-					<TimelineCardRight direction="card-right" />
+class Timeline extends Component {
+	state = {
+		todos: [],
+	};
+	async componentDidMount() {
+		const { data } = await axios.get("http://localhost:3000/api/notes");
+		this.setState({ todos: data.notes });
+	}
+	render() {
+		return (
+			<>
+				<Navbar />
+				<div className="timeline">
+					<div className="timeline-cards">
+						<TimelineCardLeft />
+						<TimelineCardRight />
+						<TimelineCardLeft />
+						<TimelineCardRight />
+						<TimelineCardRight />
+						<TimelineCardRight />
+					</div>
 				</div>
-			</div>
-		</>
-	);
+			</>
+		);
+	}
 
 	// <ul>
 	// 	<li>
@@ -96,6 +109,6 @@ const Timeline = () => {
 	// 	</li>
 	// 	<div style={{ clear: "both" }} />
 	// </ul>
-};
+}
 
 export default Timeline;

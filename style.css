@@ -455,26 +455,25 @@ a:hover {
 .timeline {
 	font-family: var(--ff-formText);
 	position: relative;
-	margin: 10rem auto;
+	margin: 3rem auto;
 	width: 40rem;
 }
 
 .timeline:before {
 	content: "";
-	position: absolute;
-	left: 50%;
 	width: 2px;
 	height: 100%;
-	background-color: #c5c5c5;
+	background: #c5c5c5;
+	left: 50%;
+	top: 0;
+	position: absolute;
 }
 
 .timeline:after {
 	content: "";
-	position: absolute;
-	left: 50%;
-	width: 2px;
-	height: 50%;
-	background-color: #c5c5c5;
+	clear: both;
+	display: table;
+	width: 100%;
 }
 
 .timeline-card-left {
@@ -636,4 +635,46 @@ a:hover {
 	border-bottom-left-radius: 0.5rem;
 	border-bottom-right-radius: 0.5rem;
 	/* text-align: right; */
+}
+
+.timeline-card-left .timeline-button-left {
+	background-color: var(--clr-undoRed) !important;
+	color: white !important;
+	position: absolute;
+	top: 2.3rem;
+	right: -4.6rem;
+	cursor: default !important;
+}
+
+.timeline-card-right .timeline-button-right {
+	background-color: var(--clr-doneBlue) !important;
+	text-align: center !important;
+	color: white !important;
+	position: absolute;
+	top: 2.3rem;
+	left: -4.2rem;
+	z-index: 2;
+	cursor: default !important;
+}
+
+.timeline-card-left .time {
+	padding: 0.5rem 1.5rem;
+	background-color: var(--clr-undoRed);
+	position: absolute;
+	border-radius: 2rem;
+	color: white;
+	box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
+	top: 2.3rem;
+	right: -12rem;
+}
+
+.timeline-card-right .time {
+	padding: 0.5rem 1.5rem;
+	background-color: var(--clr-doneBlue);
+	position: absolute;
+	border-radius: 2rem;
+	color: white;
+	box-shadow: 0 0 0 3px rgba(99, 132, 241, 0.3);
+	top: 2.3rem;
+	left: -12rem;
 }

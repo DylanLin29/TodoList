@@ -13,6 +13,7 @@
 	--clr-importanceRed: #ee1111;
 	--ff-formText: "Trebuchet MS", Helvetica, sans-serif;
 	--ff-noteText: "Roboto", sans-serif;
+	--ff-timeline: "Montserrat", sans-serif;
 }
 
 h1 {
@@ -448,4 +449,191 @@ a:hover {
 	.card {
 		margin: 2rem;
 	}
+}
+
+/* timeline page */
+.timeline {
+	font-family: var(--ff-formText);
+	position: relative;
+	margin: 10rem auto;
+	width: 40rem;
+}
+
+.timeline:before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	width: 2px;
+	height: 100%;
+	background-color: #c5c5c5;
+}
+
+.timeline:after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	width: 2px;
+	height: 50%;
+	background-color: #c5c5c5;
+}
+
+.timeline-card-left {
+	/* float: left; */
+}
+
+.timeline-card-right {
+	float: right;
+}
+
+.timeline ul li {
+	list-style: none;
+	position: relative;
+	width: 50%;
+	padding: 20px 40px;
+	box-sizing: border-box;
+}
+
+.timeline ul li:nth-child(odd) {
+	text-align: right;
+	float: left;
+	clear: both;
+}
+
+.timeline ul li:nth-child(even) {
+	text-align: left;
+	float: right;
+	clear: both;
+}
+
+.content {
+	padding-bottom: 20px;
+}
+
+.timeline ul li:nth-child(odd)::before {
+	content: "";
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: rgba(233, 33, 99, 1);
+	border-radius: 50%;
+	box-shadow: 0 0 0 0 3px rgba(233, 33, 99, 0.2);
+	top: 24px;
+	right: -6px;
+}
+
+.timeline ul li:nth-child(even)::before {
+	content: "";
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: rgba(233, 33, 99, 1);
+	border-radius: 50%;
+	box-shadow: 0 0 0 0 3px rgba(233, 33, 99, 0.2);
+	top: 24px;
+	left: -4px;
+}
+
+.timeline ul li h3 {
+	margin: 0;
+	padding: 0;
+	font-weight: 600;
+	color: rgba(233, 33, 99, 1);
+}
+
+.timeline ul li p {
+	margin: 10px 0 0;
+	padding: 0;
+}
+
+.timeline ul li .time {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	color: white;
+}
+
+.timeline ul li:nth-child(odd) .time {
+	position: absolute;
+	top: 12px;
+	right: -100px;
+	margin: 0;
+	padding: 8px 16px;
+	background-color: rgba(233, 33, 99, 1);
+	border-radius: 18px;
+	box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
+}
+
+.timeline ul li:nth-child(even) .time {
+	position: absolute;
+	top: 15px;
+	left: -100px;
+	margin: 0;
+	padding: 8px 16px;
+	background-color: rgba(233, 33, 99, 1);
+	border-radius: 18px;
+	box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
+}
+
+/* timeline card */
+.timeline-card-left {
+	position: relative;
+	/* margin: 40px; */
+	width: 17rem;
+	padding-top: 2rem;
+	clear: both;
+	text-align: right;
+}
+
+.timeline-card-right {
+	position: relative;
+	/* margin: 40px; */
+	width: 17rem;
+	padding-top: 2rem;
+	clear: both;
+	text-align: left;
+}
+
+.timeline-card-header {
+	position: relative;
+	height: 3rem;
+	background-color: black;
+	color: #fff;
+	padding: 1rem;
+	/* text-align: right; */
+	background-color: var(--clr-undoRed);
+	font-size: 1.5rem;
+	border-top-left-radius: 0.5rem;
+	border-top-right-radius: 0.5rem;
+}
+
+.card-left:after {
+	content: " ";
+	position: absolute;
+	right: -0.5rem;
+	top: 1rem;
+	border-top: 0.7rem solid transparent;
+	border-right: none;
+	border-left: 0.7rem solid var(--clr-undoRed);
+	border-bottom: 0.7rem solid transparent;
+}
+
+.card-right:after {
+	content: " ";
+	position: absolute;
+	left: -0.5rem;
+	top: 1rem;
+	border-top: 0.7rem solid transparent;
+	border-right: 0.7rem solid var(--clr-undoRed);
+	border-left: none;
+	border-bottom: 0.7rem solid transparent;
+}
+
+.timeline-card-description {
+	background-color: #fbfbfb;
+	box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
+	padding: 1rem;
+	padding-bottom: 2rem;
+	border-bottom-left-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	/* text-align: right; */
 }

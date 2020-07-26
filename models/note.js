@@ -29,6 +29,10 @@ const noteSchema = new mongoose.Schema({
 		type: String,
 		required: false,
 	},
+	createDate: {
+		type: Number,
+		required: true,
+	},
 });
 
 module.exports = mongoose.models.Note || mongoose.model("Note", noteSchema);

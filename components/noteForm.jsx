@@ -55,8 +55,12 @@ class NoteForm extends Form {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.props.handleCreate(this.state.data);
-		this.handleCancel();
+		const data = { ...this.state.data };
+		data.createDate = Date.now();
+		this.setState({ data }, () => {
+			this.props.handleCreate(this.state.data);
+			this.handleCancel();
+		});
 	};
 
 	handleClickImportance = (index) => {

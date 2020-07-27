@@ -29,6 +29,7 @@ class Timeline extends Component {
 						let currentDate = "";
 						let allComplete = todos.map(({ check }) => check);
 						allComplete = allComplete.every(Boolean);
+						console.log(allComplete);
 						direction === "left" ? (direction = "right") : (direction = "left");
 						return todos.map(
 							({ title, description, category, check }, index) => {

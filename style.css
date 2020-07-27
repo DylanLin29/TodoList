@@ -459,11 +459,12 @@ a:hover {
 	width: 40rem;
 }
 
+/* timeline's vertical line */
 .timeline:before {
 	content: "";
 	width: 2px;
 	height: 100%;
-	background: #c5c5c5;
+	background: #ebeaea;
 	left: 50%;
 	top: 0;
 	position: absolute;
@@ -480,111 +481,20 @@ a:hover {
 	float: right;
 }
 
-.timeline ul li {
-	list-style: none;
-	position: relative;
-	width: 50%;
-	padding: 20px 40px;
-	box-sizing: border-box;
-}
-
-.timeline ul li:nth-child(odd) {
-	text-align: right;
-	float: left;
-	clear: both;
-}
-
-.timeline ul li:nth-child(even) {
-	text-align: left;
-	float: right;
-	clear: both;
-}
-
-.content {
-	padding-bottom: 20px;
-}
-
-.timeline ul li:nth-child(odd)::before {
-	content: "";
-	position: absolute;
-	width: 10px;
-	height: 10px;
-	background-color: rgba(233, 33, 99, 1);
-	border-radius: 50%;
-	box-shadow: 0 0 0 0 3px rgba(233, 33, 99, 0.2);
-	top: 24px;
-	right: -6px;
-}
-
-.timeline ul li:nth-child(even)::before {
-	content: "";
-	position: absolute;
-	width: 10px;
-	height: 10px;
-	background-color: rgba(233, 33, 99, 1);
-	border-radius: 50%;
-	box-shadow: 0 0 0 0 3px rgba(233, 33, 99, 0.2);
-	top: 24px;
-	left: -4px;
-}
-
-.timeline ul li h3 {
-	margin: 0;
-	padding: 0;
-	font-weight: 600;
-	color: rgba(233, 33, 99, 1);
-}
-
-.timeline ul li p {
-	margin: 10px 0 0;
-	padding: 0;
-}
-
-.timeline ul li .time {
-	margin: 0;
-	padding: 0;
-	font-size: 14px;
-	color: white;
-}
-
-.timeline ul li:nth-child(odd) .time {
-	position: absolute;
-	top: 12px;
-	right: -100px;
-	margin: 0;
-	padding: 8px 16px;
-	background-color: rgba(233, 33, 99, 1);
-	border-radius: 18px;
-	box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
-}
-
-.timeline ul li:nth-child(even) .time {
-	position: absolute;
-	top: 15px;
-	left: -100px;
-	margin: 0;
-	padding: 8px 16px;
-	background-color: rgba(233, 33, 99, 1);
-	border-radius: 18px;
-	box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
-}
-
 /* timeline card */
-.timeline-card-left {
+.timeline-card-left,
+.timeline-card-right {
 	position: relative;
-	/* margin: 40px; */
 	width: 17rem;
 	padding-top: 2rem;
 	clear: both;
+}
+
+.timeline-card-left {
 	text-align: right;
 }
 
 .timeline-card-right {
-	position: relative;
-	/* margin: 40px; */
-	width: 17rem;
-	padding-top: 2rem;
-	clear: both;
 	text-align: left;
 }
 
@@ -594,33 +504,31 @@ a:hover {
 	background-color: black;
 	color: #fff;
 	padding: 1rem;
-	/* text-align: right; */
 	background-color: var(--clr-undoRed);
 	font-size: 1.5rem;
 	border-top-left-radius: 0.5rem;
 	border-top-right-radius: 0.5rem;
 }
 
-.card-left:after {
+.card-left::after,
+.card-right::after {
 	content: " ";
 	position: absolute;
-	right: -0.5rem;
 	top: 1rem;
 	border-top: 0.7rem solid transparent;
-	border-right: none;
-	border-left: 0.7rem solid var(--clr-undoRed);
 	border-bottom: 0.7rem solid transparent;
 }
 
-.card-right:after {
-	content: " ";
-	position: absolute;
+.card-left::after {
+	right: -0.5rem;
+	border-right: none;
+	border-left: 0.7rem solid var(--clr-undoRed);
+}
+
+.card-right::after {
 	left: -0.5rem;
-	top: 1rem;
-	border-top: 0.7rem solid transparent;
 	border-right: 0.7rem solid var(--clr-undoRed);
 	border-left: none;
-	border-bottom: 0.7rem solid transparent;
 }
 
 .timeline-card-description {
@@ -630,39 +538,31 @@ a:hover {
 	padding-bottom: 2rem;
 	border-bottom-left-radius: 0.5rem;
 	border-bottom-right-radius: 0.5rem;
-	/* text-align: right; */
+}
+
+.timeline-button-right,
+.timeline-button-left {
+	position: absolute;
+	background-color: var(--clr-undoRed);
+	color: white;
+	height: 2.5rem;
+	width: 2.5rem;
+	border-radius: 50% !important;
+	text-align: center;
+	top: 2.3rem;
 }
 
 .timeline-card-left .timeline-button-left {
-	background-color: var(--clr-undoRed) !important;
-	color: white !important;
-	position: absolute;
-	top: 2.3rem;
 	right: -4.3rem;
+	padding-top: 0.5rem;
 }
 
 .timeline-card-right .timeline-button-right {
-	background-color: var(--clr-undoRed);
-	text-align: center !important;
-	color: white !important;
-	position: absolute;
-	top: 2.3rem;
 	left: -4.2rem;
-	z-index: 2;
-	cursor: default !important;
+	padding-top: 0.49rem;
 }
 
-.timeline-card-left .time {
-	padding: 0.5rem 1.5rem;
-	background-color: var(--clr-undoRed);
-	position: absolute;
-	border-radius: 2rem;
-	color: white;
-	box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
-	top: 2.4rem;
-	right: -15rem;
-}
-
+.timeline-card-left .time,
 .timeline-card-right .time {
 	padding: 0.5rem 1.5rem;
 	background-color: var(--clr-undoRed);
@@ -670,39 +570,37 @@ a:hover {
 	border-radius: 2rem;
 	color: white;
 	box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
+}
+
+.timeline-card-left .time {
+	top: 2.4rem;
+	right: -15rem;
+}
+
+.timeline-card-right .time {
 	top: 2.3rem;
 	left: -15rem;
-}
-
-.timeline-button-right {
-	height: 2.5rem;
-	width: 2.5rem;
-	border-radius: 50% !important;
-	padding-top: 0.49rem;
-	text-align: center;
-}
-
-.timeline-button-left {
-	height: 2.5rem;
-	width: 2.5rem;
-	border-radius: 50% !important;
-	padding-top: 0.5rem;
-	text-align: center;
 }
 
 .timeline-card-complete .timeline-card-header {
 	background-color: var(--clr-doneBlue);
 }
 
-.timeline-card-complete .timeline-card-header::after {
+.timeline-card-complete .card-right::after {
 	border-right: 0.7rem solid var(--clr-doneBlue);
 }
 
-.timeline-card-complete .timeline-button-right {
-	background-color: var(--clr-doneBlue);
+.timeline-card-complete .card-left::after {
+	border-left: 0.7rem solid var(--clr-doneBlue);
 }
 
-.timeline-card-right .time-complete .time {
-	background-color: var(--clr-undoRed) !important;
+.timeline-card-complete .timeline-button-right,
+.timeline-card-complete .timeline-button-left {
+	background-color: var(--clr-doneBlue) !important;
+}
+
+.timeline-card-left .time-complete,
+.timeline-card-right .time-complete {
+	background-color: var(--clr-doneBlue);
 	box-shadow: 0 0 0 3px rgba(99, 132, 241, 0.3);
 }

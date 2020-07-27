@@ -1,26 +1,52 @@
-import { Button } from "semantic-ui-react";
-const TimelineCardLeft = () => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faHome,
+	faBriefcase,
+	faEllipsisH,
+	faBook,
+} from "@fortawesome/free-solid-svg-icons";
+const TimelineCardLeft = ({
+	description,
+	title,
+	date,
+	category,
+	check,
+	allComplete,
+}) => {
+	let categoryLabel = faEllipsisH;
+	switch (category) {
+		case "Home":
+			categoryLabel = faHome;
+			break;
+		case "Work":
+			categoryLabel = faBriefcase;
+			break;
+		case "School":
+			categoryLabel = faBook;
+			break;
+		default:
+			categoryLabel = faEllipsisH;
+			break;
+	}
 	return (
 		<>
-			<div className="timeline-card-left">
-				<div className="timeline-card-header card-left">Lorem ipsum dolor</div>
-				<div className="timeline-card-description">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra
-					diam consectetur ullamcorper consequat. Etiam et lorem commodo,
-					porttitor diam a, semper nulla. Maecenas in turpis tempor, tempor
-					lorem et, porta nunc. Donec ullamcorper dolor odio, id pellentesque
-					tortor facilisis at. Aenean consequat velit vitae tellus aliquam, nec
-					consequat diam.
+			<div
+				className={
+					check
+						? "timeline-card-left timeline-card-complete"
+						: "timeline-card-left"
+				}
+			>
+				<div className="timeline-card-header card-left">{title}</div>
+				<div className="timeline-card-description">{description}</div>
+				<div className="timeline-button-left">
+					<FontAwesomeIcon icon={categoryLabel} size="lg" />
 				</div>
-				<Button
-					circular
-					className="timeline-button-left"
-					icon="home"
-					size="medium"
-				/>
-				<div className="time">
-					<h3>Date</h3>
-				</div>
+				{date && (
+					<div className={allComplete ? "time time-complete" : "time"}>
+						<h4>{date}</h4>
+					</div>
+				)}
 			</div>
 		</>
 	);

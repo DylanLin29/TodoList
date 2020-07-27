@@ -476,10 +476,6 @@ a:hover {
 	width: 100%;
 }
 
-.timeline-card-left {
-	/* float: left; */
-}
-
 .timeline-card-right {
 	float: right;
 }
@@ -642,12 +638,11 @@ a:hover {
 	color: white !important;
 	position: absolute;
 	top: 2.3rem;
-	right: -4.6rem;
-	cursor: default !important;
+	right: -4.3rem;
 }
 
 .timeline-card-right .timeline-button-right {
-	background-color: var(--clr-doneBlue) !important;
+	background-color: var(--clr-undoRed);
 	text-align: center !important;
 	color: white !important;
 	position: absolute;
@@ -664,17 +659,50 @@ a:hover {
 	border-radius: 2rem;
 	color: white;
 	box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
-	top: 2.3rem;
-	right: -12rem;
+	top: 2.4rem;
+	right: -15rem;
 }
 
 .timeline-card-right .time {
 	padding: 0.5rem 1.5rem;
-	background-color: var(--clr-doneBlue);
+	background-color: var(--clr-undoRed);
 	position: absolute;
 	border-radius: 2rem;
 	color: white;
-	box-shadow: 0 0 0 3px rgba(99, 132, 241, 0.3);
+	box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
 	top: 2.3rem;
-	left: -12rem;
+	left: -15rem;
+}
+
+.timeline-button-right {
+	height: 2.5rem;
+	width: 2.5rem;
+	border-radius: 50% !important;
+	padding-top: 0.49rem;
+	text-align: center;
+}
+
+.timeline-button-left {
+	height: 2.5rem;
+	width: 2.5rem;
+	border-radius: 50% !important;
+	padding-top: 0.5rem;
+	text-align: center;
+}
+
+.timeline-card-complete .timeline-card-header {
+	background-color: var(--clr-doneBlue);
+}
+
+.timeline-card-complete .timeline-card-header::after {
+	border-right: 0.7rem solid var(--clr-doneBlue);
+}
+
+.timeline-card-complete .timeline-button-right {
+	background-color: var(--clr-doneBlue);
+}
+
+.timeline-card-right .time-complete .time {
+	background-color: var(--clr-undoRed) !important;
+	box-shadow: 0 0 0 3px rgba(99, 132, 241, 0.3);
 }

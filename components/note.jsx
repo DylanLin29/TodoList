@@ -25,7 +25,7 @@ const Note = ({
 	check && (arrowClass = "card-arrow-complete");
 	return (
 		<div className="card-wrapper">
-			<div className="card">
+			<div className="card card-info-note">
 				<div className={check ? "card-img card-complete" : "card-img"} />
 				<img src={`images/${category}.png`} className="profile-img" />
 				<p

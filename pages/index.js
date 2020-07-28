@@ -4,6 +4,7 @@ import Jumbotron from "../components/jumbotron";
 import Footer from "../components/footer";
 import { optionalAuth } from "../utils/auth";
 import TodoListInfo from "../components/todoListInfo";
+import CardInfo from "../components/cardInfo";
 
 const Home = ({ authenticated }) => {
 	return (
@@ -18,6 +19,7 @@ const Home = ({ authenticated }) => {
 				</div>
 			</div>
 			<TodoListInfo />
+			<CardInfo />
 			<Footer />
 
 			{/* <Jumbotron /> */}

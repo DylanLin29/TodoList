@@ -97,12 +97,106 @@ p {
 	padding: 1rem;
 }
 
+.card-info {
+	width: 100%;
+	height: 100vh;
+	background-color: #8bd4ab;
+	/* background-color: var(--clr-footerBlack); */
+	display: flex;
+	flex-direction: row;
+}
+
+.card-info-delete {
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+
+.card-info-details {
+	background-color: white;
+	height: 27.3rem;
+	padding-top: -2rem;
+	margin-top: 4rem;
+	padding-left: 2rem;
+	width: 40rem;
+	border-radius: 1rem;
+	box-shadow: 0.5rem 0.5rem 0.3rem rgba(0, 0, 0, 0.2);
+}
+
+.fa-home {
+	color: white;
+	background-color: var(--clr-darkerBlue);
+	border-radius: 50%;
+	width: 3rem !important;
+	height: 3rem !important;
+	padding: 0.2rem;
+	margin-top: 1.5rem;
+	transform: rotateY(180deg);
+}
+
+.card-info span {
+	margin-left: 1rem;
+	font-family: var(--ff-timeline);
+	color: black;
+	font-size: 1.5rem;
+}
+
+.card-info-check span {
+	margin-left: 1.45rem;
+}
+
+.card-info-trash span {
+	margin-left: 1.6rem;
+}
+
+.card-info-complete span {
+	margin-left: 1.75rem;
+}
+
+.card-info-details .fa-check {
+	color: var(--clr-doneBlue);
+}
+
+.card-info-incomplate span {
+	margin-left: 1.3rem;
+}
+
+.card-info-details .fa-chevron-down {
+	margin-right: 0.7rem;
+}
+
+.card-info-details .fa-chevron-down,
+.card-info-details .fa-check,
+.card-info-details .fa-spinner,
+.card-info-details .fa-trash,
+.card-info-details .fa-clipboard-check {
+	margin-top: 1.5rem;
+	margin-left: 0.5rem;
+}
+
+.card-info-details .fa-clipboard-check {
+	margin-left: 0.6rem;
+}
+
+.card-info-importance span:nth-child(1) {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 2rem;
+	color: var(--clr-importanceRed);
+	color: var(--clr-undoRed);
+	margin-left: 1rem;
+	margin-right: 1.2rem;
+}
+
+.card-info-importance {
+	margin-top: 1.5rem;
+}
+
 /* ------------------------------------------------------- */
 
 /* Navbar */
 
 .navbar {
 	background-color: var(--clr-lightBlue);
+	/* background-color: transparent; */
 }
 
 .nav-link {

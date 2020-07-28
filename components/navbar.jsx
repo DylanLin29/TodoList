@@ -1,7 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListAlt } from "@fortawesome/free-solid-svg-icons";
-import cookie from "cookie";
+import Router from "next/router";
+const axios = require("axios");
 const Navbar = ({ authenticated }) => {
+	const handleLogout = async () => {
+		await axios.post("http://localhost:3000/api/auth/logout");
+		Router.push("/");
+	};
 	return (
 		<nav className="navbar navbar-expand-lg">
 			<a className="navbar-brand" href="/">
@@ -19,35 +24,33 @@ const Navbar = ({ authenticated }) => {
 				<span className="navbar-toggler-icon"></span>
 			</button>
 
-			<div
-				className="collapse navbar-collapse"
-				id="navbarSupportedContent"
-			>
+			<div className="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul className="navbar-nav mr-auto">
 					<li className="nav-item">
-						<a className="nav-link" href="/todo">
-							Todo<span className="sr-only">(current)</span>
-						</a>
+						{authenticated && (
+							<a className="nav-link" href="/todo">
+								Todo<span className="sr-only">(current)</span>
+							</a>
+						)}
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href="/timeline">
-							Timeline
-						</a>
+						{authenticated && (
+							<a className="nav-link" href="/timeline">
+								Timeline
+							</a>
+						)}
 					</li>
 				</ul>
 				<ul className="navbar-nav ml-auto">
 					{!authenticated ? (
 						<>
 							<li className="nav-item">
-								<a className="nav-link" href="/login">
+								<a className="nav-link nav-auth-button" href="/login">
 									Login
 								</a>
 							</li>
 							<li className="nav-item">
-								<a
-									className="nav-link register"
-									href="/register"
-								>
+								<a className="nav-link nav-auth-button" href="/register">
 									Register
 								</a>
 							</li>
@@ -55,8 +58,9 @@ const Navbar = ({ authenticated }) => {
 					) : (
 						<li className="nav-item">
 							<a
-								className="nav-link"
+								className="nav-link nav-auth-button nav-logout"
 								style={{ cursor: "pointer" }}
+								onClick={handleLogout}
 							>
 								Logout
 							</a>

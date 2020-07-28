@@ -1,10 +1,12 @@
-import Navbar from "../components/navbar";
+import axios from "axios";
+import cookie from "cookie";
 import { Button, Dropdown } from "semantic-ui-react";
 import { Component } from "react";
+import Navbar from "../components/navbar";
 import NoteForm from "../components/noteForm";
 import Note from "../components/note";
-import axios from "axios";
 import sort from "../utils/sort";
+import { requiredAuth } from "../utils/auth";
 
 class Todo extends Component {
 	state = {
@@ -101,6 +103,7 @@ class Todo extends Component {
 
 	render() {
 		const { todos, sortOpen, dropDownText, notePop } = this.state;
+		console.log(this.props.user);
 		return (
 			<div>
 				<Navbar />
@@ -196,6 +199,11 @@ class Todo extends Component {
 			</div>
 		);
 	}
+}
+
+export function getServerSideProps(context) {
+	const user = requiredAuth(context);
+	return { props: { user: user } };
 }
 
 export default Todo;

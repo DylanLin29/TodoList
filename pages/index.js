@@ -1,6 +1,7 @@
 import Navbar from "../components/navbar";
 import Features from "../components/features";
 import Jumbotron from "../components/jumbotron";
+import { optionalAuth } from "../utils/auth";
 
 const Home = ({ authenticated }) => {
 	return (
@@ -12,11 +13,9 @@ const Home = ({ authenticated }) => {
 	);
 };
 
-Home.getInitialProps = async (ctx) => {
-	if (ctx.req?.headers.cookie) {
-		return { authenticated: true };
-	}
-	return { authenticated: false };
-};
+export function getServerSideProps(context) {
+	const user = optionalAuth(context);
+	return { props: { authenticated: user === "" ? false : true } };
+}
 
 export default Home;

@@ -7,7 +7,6 @@ export default async (req, res) => {
 	const { method } = req;
 	switch (method) {
 		case "GET":
-			const { sortCategory, order } = req.query;
 			try {
 				const notes = await Note.find({}).sort({ importance: 1 });
 				res.json({ notes: notes });

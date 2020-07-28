@@ -38,7 +38,7 @@ const TimelineCardRight = ({
 				}
 			>
 				<div className={"timeline-card-header card-right"}>{title}</div>
-				<div className="timeline-card-description ">{description}</div>
+				<div className="timeline-card-description">{description}</div>
 				<div className="timeline-button-right">
 					<FontAwesomeIcon icon={categoryLabel} size="lg" />
 				</div>

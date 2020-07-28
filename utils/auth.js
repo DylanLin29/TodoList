@@ -1,28 +1,26 @@
-import React from "react";
-
-const AuthContext = React.createContext({
-	isAuthenticated: false,
-	setAuthenticated: () => {},
-});
-
-export const AuthProvider = ({ childrenComponents, authenticated }) => {
-	const [isAuthenticated, setAuthenticated] = React.useState(authenticated);
-	return (
-		<AuthContext.Provider value={{ isAuthenticated, setAuthenticated }}>
-			{childrenComponents}
-		</AuthContext.Provider>
-	);
-};
-
-export function userAuth() {
-	const context = React.useContext(AuthContext);
-	if (context === undefined) {
-		throw new Error("useAuth must be used within an AuthProvider");
+import cookie from "cookie";
+import jwt from "jsonwebtoken";
+export function requiredAuth({ req, res }) {
+	const { auth } = cookie.parse(req.headers.cookie || "");
+	try {
+		const decoded = jwt.verify(auth, process.env.JWT);
+		return decoded;
+	} catch (err) {
+		console.log(err);
+		res.writeHead(302, {
+			Location: "http://localhost:3000/login",
+		});
+		res.end();
+		return "";
 	}
-	return context;
 }
 
-export function userIsAuthenticated() {
-	const context = userAuth();
-	return context.isAuthenticated;
+export function optionalAuth({ req, res }) {
+	const { auth } = cookie.parse(req.headers.cookie || "");
+	try {
+		const decoded = jwt.verify(auth, process.env.JWT);
+		return decoded;
+	} catch (err) {
+		return "";
+	}
 }

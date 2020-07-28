@@ -6,6 +6,8 @@
 	--clr-mediumBlue: #15ced8;
 	--clr-lightOrange: #ffbd69;
 	--clr-darkOrange: #f37121;
+	--clr-footerBlack: #393e46;
+	--clr-footerWhite: #eeeeee;
 	/* Card color */
 	--clr-doneBlue: #2485cf;
 	--clr-importanceBlue: #0962a7;
@@ -23,6 +25,8 @@ h1 {
 p {
 	cursor: default;
 }
+
+/* ------------------------------------------------------- */
 
 /* Navbar */
 
@@ -61,6 +65,8 @@ p {
 	background-color: var(--clr-undoRed);
 }
 
+/* ------------------------------------------------------- */
+
 /* Features */
 
 .row img {
@@ -76,6 +82,8 @@ img:nth-child(2) {
 .justify-content-md-center img:hover {
 	cursor: pointer;
 }
+
+/* ------------------------------------------------------- */
 
 /* Jumbotron */
 
@@ -95,6 +103,51 @@ img:nth-child(2) {
 .jumbotron img {
 	width: 10rem;
 }
+
+/* ------------------------------------------------------- */
+
+/* Footer */
+
+.footer-container {
+	position: absolute;
+	width: 100%;
+	height: 20vh;
+	bottom: 0;
+	background-color: var(--clr-footerBlack);
+	text-align: center;
+	padding: 1rem;
+}
+
+.fa-linkedin,
+.fa-github-square,
+.fa-map-marker-alt,
+.fa-envelope {
+	color: var(--clr-footerWhite);
+	margin-top: 1rem;
+}
+
+.fa-linkedin,
+.fa-github-square {
+	margin-right: 1rem;
+}
+
+.fa-map-marker-alt,
+.fa-envelope {
+	margin-right: 0.5rem;
+}
+
+.fa-envelope {
+	margin-top: 5rem;
+}
+
+.footer-container span {
+	color: var(--clr-footerWhite);
+	font-size: large;
+	font-family: var(--ff-timeline);
+	letter-spacing: 0.02rem;
+}
+
+/* ------------------------------------------------------- */
 
 /* appForm */
 

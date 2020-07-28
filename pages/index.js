@@ -1,6 +1,7 @@
 import Navbar from "../components/navbar";
 import Features from "../components/features";
 import Jumbotron from "../components/jumbotron";
+import Footer from "../components/footer";
 import { optionalAuth } from "../utils/auth";
 
 const Home = ({ authenticated }) => {
@@ -9,6 +10,7 @@ const Home = ({ authenticated }) => {
 			<Navbar authenticated={authenticated} />
 			<Jumbotron />
 			<Features />
+			<Footer />
 		</>
 	);
 };

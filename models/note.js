@@ -33,6 +33,10 @@ const noteSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
+	userID: {
+		type: String,
+		required: true,
+	},
 });
 
 module.exports = mongoose.models.Note || mongoose.model("Note", noteSchema);

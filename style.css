@@ -12,6 +12,7 @@
 	--clr-doneBlue: #2485cf;
 	--clr-importanceBlue: #0962a7;
 	--clr-undoRed: #ff5757;
+	--clr-logoutRed: #f38181;
 	--clr-importanceRed: #ee1111;
 	--ff-formText: "Trebuchet MS", Helvetica, sans-serif;
 	--ff-noteText: "Roboto", sans-serif;
@@ -54,15 +55,38 @@ p {
 }
 
 .nav-auth-button {
-	background-color: var(--clr-doneBlue);
+	background-color: #08d9d6;
 	padding: 1px;
 	border-radius: 10px !important;
-	box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 3px 0 rgba(24, 44, 46, 0.1);
 	margin-right: 1rem;
 }
 
 .nav-logout {
 	background-color: var(--clr-undoRed);
+}
+
+nav span {
+	font-size: 2.2rem;
+	font-weight: 550;
+	font-family: var(--ff-timeline);
+	left: 0;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	color: white;
+	letter-spacing: 0.1rem;
+	z-index: 0;
+}
+
+.navbar-nav,
+.navbar-brand {
+	z-index: 1;
+}
+
+.nav-todos,
+.nav-timeline {
+	border-bottom: 5px solid var(--clr-darkerBlue);
 }
 
 /* ------------------------------------------------------- */
@@ -111,7 +135,7 @@ img:nth-child(2) {
 .footer-container {
 	position: absolute;
 	width: 100%;
-	height: 20vh;
+	height: 15vh;
 	bottom: 0;
 	background-color: var(--clr-footerBlack);
 	text-align: center;
@@ -136,14 +160,9 @@ img:nth-child(2) {
 	margin-right: 0.5rem;
 }
 
-.fa-envelope {
-	margin-top: 5rem;
-}
-
 .footer-container span {
 	color: var(--clr-footerWhite);
-	font-size: large;
-	font-family: var(--ff-timeline);
+	font-size: medium;
 	letter-spacing: 0.02rem;
 }
 

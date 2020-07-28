@@ -8,9 +8,9 @@ const Home = ({ authenticated }) => {
 	return (
 		<>
 			<Navbar authenticated={authenticated} />
-			<Jumbotron />
+			{/* <Jumbotron /> */}
 			<Features />
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 };

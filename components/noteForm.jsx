@@ -12,6 +12,7 @@ class NoteForm extends Form {
 			createDate: 0,
 			check: false,
 			date: "",
+			userID: this.props.user._id,
 		},
 		errors: {},
 		selectImportance: {
@@ -32,6 +33,7 @@ class NoteForm extends Form {
 		date: Joi.string()
 			.regex(/(0[1-9]|1[012])[-.](0[1-9]|[12][0-9]|3[01])[-.](19|20)\d\d/)
 			.allow(""),
+		userID: Joi.string().required(),
 	};
 
 	handleCancel = () => {

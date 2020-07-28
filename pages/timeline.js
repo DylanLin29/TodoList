@@ -23,13 +23,12 @@ class Timeline extends Component {
 		let direction = "right";
 		return (
 			<>
-				<Navbar />
+				<Navbar authenticated={true} currentPage="timeline" />
 				<div className="timeline">
 					{groupTodos.map(({ date, todos }) => {
 						let currentDate = "";
 						let allComplete = todos.map(({ check }) => check);
 						allComplete = allComplete.every(Boolean);
-						console.log(allComplete);
 						direction === "left" ? (direction = "right") : (direction = "left");
 						return todos.map(
 							({ title, description, category, check }, index) => {

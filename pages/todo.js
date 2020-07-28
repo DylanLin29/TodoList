@@ -103,10 +103,9 @@ class Todo extends Component {
 
 	render() {
 		const { todos, sortOpen, dropDownText, notePop } = this.state;
-		console.log(this.props.user);
 		return (
 			<div>
-				<Navbar />
+				<Navbar authenticated={true} currentPage="todo" />
 				<div
 					className={
 						sortOpen
@@ -193,6 +192,7 @@ class Todo extends Component {
 						<NoteForm
 							handleCreate={this.handleCreate}
 							handleOpenNote={this.handleOpenNote}
+							user={this.props.user}
 						/>
 					</div>
 				</div>

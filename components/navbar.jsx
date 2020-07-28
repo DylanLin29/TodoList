@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListAlt } from "@fortawesome/free-solid-svg-icons";
 import Router from "next/router";
+import { useState } from "react";
 const axios = require("axios");
-const Navbar = ({ authenticated }) => {
+const Navbar = ({ authenticated, currentPage }) => {
 	const handleLogout = async () => {
 		await axios.post("http://localhost:3000/api/auth/logout");
 		Router.push("/");
@@ -28,19 +29,32 @@ const Navbar = ({ authenticated }) => {
 				<ul className="navbar-nav mr-auto">
 					<li className="nav-item">
 						{authenticated && (
-							<a className="nav-link" href="/todo">
-								Todo<span className="sr-only">(current)</span>
+							<a
+								className={
+									currentPage === "todo" ? "nav-link nav-todos" : "nav-link"
+								}
+								href="/todo"
+							>
+								Todos<span className="sr-only">(current)</span>
 							</a>
 						)}
 					</li>
 					<li className="nav-item">
 						{authenticated && (
-							<a className="nav-link" href="/timeline">
+							<a
+								className={
+									currentPage === "timeline"
+										? "nav-link nav-timeline"
+										: "nav-link"
+								}
+								href="/timeline"
+							>
 								Timeline
 							</a>
 						)}
 					</li>
 				</ul>
+				<span>TODOLIST</span>
 				<ul className="navbar-nav ml-auto">
 					{!authenticated ? (
 						<>

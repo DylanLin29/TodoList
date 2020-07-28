@@ -7,6 +7,7 @@ import NoteForm from "../components/noteForm";
 import Note from "../components/note";
 import sort from "../utils/sort";
 import { requiredAuth } from "../utils/auth";
+const links = require("../config/links");
 
 class Todo extends Component {
 	state = {
@@ -33,7 +34,7 @@ class Todo extends Component {
 	}
 
 	getTodos = async () => {
-		const { data } = await axios.get("http://localhost:3000/api/notes");
+		const { data } = await axios.get(links.notes);
 		const sortTodos = sort(
 			data.notes,
 			this.state.sortCategory,
@@ -50,7 +51,7 @@ class Todo extends Component {
 	handleCreate = async (data) => {
 		const notePop = !this.state.notePop;
 		try {
-			await axios.post("http://localhost:3000/api/notes", data);
+			await axios.post(links.notes, data);
 			this.getTodos();
 		} catch (error) {
 			console.log(error);
@@ -60,7 +61,7 @@ class Todo extends Component {
 
 	handleDelete = async (_id) => {
 		try {
-			await axios.delete("http://localhost:3000/api/notes", {
+			await axios.delete(links.notes, {
 				data: _id,
 			});
 			this.getTodos();
@@ -71,7 +72,7 @@ class Todo extends Component {
 
 	handleComplete = async (_id, status) => {
 		try {
-			await axios.put("http://localhost:3000/api/notes", {
+			await axios.put(links.notes, {
 				id: _id,
 				status: status,
 			});

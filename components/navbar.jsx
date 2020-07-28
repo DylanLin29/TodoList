@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListAlt } from "@fortawesome/free-solid-svg-icons";
 import Router from "next/router";
-import { useState } from "react";
+const links = require("../config/links");
 const axios = require("axios");
 const Navbar = ({ authenticated, currentPage }) => {
 	const handleLogout = async () => {
-		await axios.post("http://localhost:3000/api/auth/logout");
+		await axios.post(links.logout);
 		Router.push("/");
 	};
 	return (

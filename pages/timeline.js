@@ -2,6 +2,7 @@ import Navbar from "../components/navbar";
 import TimelineCardLeft from "../components/common/timelineCardLeft";
 import TimelineCardRight from "../components/common/timelineCardRight";
 import { Component } from "react";
+const links = require("../config/links");
 import axios from "axios";
 import _ from "lodash";
 
@@ -10,7 +11,7 @@ class Timeline extends Component {
 		groupTodos: [],
 	};
 	async componentDidMount() {
-		const { data } = await axios.get("http://localhost:3000/api/notes");
+		const { data } = await axios.get(links.notes);
 		const groupNotes = _.chain(data.notes)
 			.groupBy("date")
 			.map((value, key) => ({ date: key, todos: value }))

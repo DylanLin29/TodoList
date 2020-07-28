@@ -1,5 +1,6 @@
 import cookie from "cookie";
 import jwt from "jsonwebtoken";
+const links = require("../config/links");
 export function requiredAuth({ req, res }) {
 	const { auth } = cookie.parse(req.headers.cookie || "");
 	try {
@@ -8,7 +9,7 @@ export function requiredAuth({ req, res }) {
 	} catch (err) {
 		console.log(err);
 		res.writeHead(302, {
-			Location: "http://localhost:3000/login",
+			Location: links.login,
 		});
 		res.end();
 		return "";

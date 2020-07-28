@@ -9,7 +9,13 @@ const Navbar = ({ authenticated, currentPage }) => {
 		Router.push("/");
 	};
 	return (
-		<nav className="navbar navbar-expand-lg">
+		<nav
+			className={
+				currentPage === "index"
+					? "navbar navbar-expand-lg fixed-top"
+					: "navbar navbar-expand-lg"
+			}
+		>
 			<a className="navbar-brand" href="/">
 				<FontAwesomeIcon icon={faListAlt} size="2x" />
 			</a>

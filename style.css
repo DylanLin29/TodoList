@@ -6,7 +6,7 @@
 	--clr-mediumBlue: #15ced8;
 	--clr-lightOrange: #ffbd69;
 	--clr-darkOrange: #f37121;
-	--clr-footerBlack: #393e46;
+	--clr-footerBlack: #1d242c;
 	--clr-footerWhite: #eeeeee;
 	/* Card color */
 	--clr-doneBlue: #2485cf;
@@ -25,6 +25,76 @@ h1 {
 
 p {
 	cursor: default;
+}
+
+.home {
+	background-color: var(--clr-footerBlack);
+	width: 100%;
+	height: 100vh;
+}
+
+.home-circle-top,
+.home-circle-bottom {
+	width: 40rem;
+	height: 40rem;
+	border-radius: 50%;
+	position: absolute;
+	z-index: 0;
+}
+
+.home-circle-top {
+	background-color: #8bd4ab;
+	top: -20rem;
+	left: -20rem;
+}
+
+.home-circle-bottom {
+	background-color: #e94759;
+	bottom: -20rem;
+	right: -20rem;
+}
+
+.home img {
+	/* margin-top: 25%; */
+	margin-left: 10%;
+	width: 18rem;
+	position: absolute;
+	top: 30%;
+}
+
+.home span {
+	font-family: var(--ff-timeline);
+	font-size: 7rem;
+	font-weight: 650;
+	position: absolute;
+	left: 45%;
+	top: 50%;
+	color: white;
+}
+
+.todolist-info {
+	background-color: #e94759;
+	height: 100vh;
+	width: 100%;
+}
+
+.todolist-info p {
+	padding-top: 10rem;
+	color: #f5e753;
+	font-size: 3rem;
+	font-weight: 550;
+	letter-spacing: 0.1rem;
+}
+
+.todolist-info ul {
+	width: 70%;
+}
+
+.todolist-info ul li {
+	color: white;
+	font-size: 1.8rem;
+	line-height: 2.5rem;
+	padding: 1rem;
 }
 
 /* ------------------------------------------------------- */
@@ -107,6 +177,14 @@ img:nth-child(2) {
 	cursor: pointer;
 }
 
+.feature-timeline {
+	background-color: #eeeeee;
+	margin-top: 5rem;
+	vertical-align: center;
+	padding-bottom: 2rem;
+	border-radius: 1rem;
+}
+
 /* ------------------------------------------------------- */
 
 /* Jumbotron */
@@ -133,9 +211,8 @@ img:nth-child(2) {
 /* Footer */
 
 .footer-container {
-	position: absolute;
 	width: 100%;
-	height: 15vh;
+	height: 20vh;
 	bottom: 0;
 	background-color: var(--clr-footerBlack);
 	text-align: center;
@@ -158,6 +235,10 @@ img:nth-child(2) {
 .fa-map-marker-alt,
 .fa-envelope {
 	margin-right: 0.5rem;
+}
+
+.fa-envelope {
+	margin-top: 2rem;
 }
 
 .footer-container span {

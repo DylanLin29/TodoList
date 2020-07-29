@@ -37,14 +37,16 @@ const TimelineCardLeft = ({
 						: "timeline-card-left"
 				}
 			>
-				<div className="timeline-card-header card-left">{title}</div>
+				<div className="timeline-card-header card-left">
+					<p>{title}</p>
+				</div>
 				<div className="timeline-card-description">{description}</div>
 				<div className="timeline-button-left">
 					<FontAwesomeIcon icon={categoryLabel} size="lg" />
 				</div>
 				{date && (
 					<div className={allComplete ? "time time-complete" : "time"}>
-						<h4>{date}</h4>
+						<p>{date}</p>
 					</div>
 				)}
 			</div>

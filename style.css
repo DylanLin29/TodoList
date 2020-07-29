@@ -913,12 +913,16 @@ a:hover {
 	height: 3.5rem;
 	background-color: black;
 	color: #fff;
-	padding: 1rem !important;
 	background-color: var(--clr-undoRed);
-	font-size: 1.5rem;
-	font-weight: 530;
 	border-top-left-radius: 0.5rem;
 	border-top-right-radius: 0.5rem;
+}
+
+.card-left p,
+.card-right p {
+	font-size: 1.5rem;
+	font-weight: 500 !important;
+	padding: 1rem !important;
 }
 
 .card-left::after,
@@ -949,7 +953,6 @@ a:hover {
 	padding-bottom: 2rem;
 	border-bottom-left-radius: 0.5rem;
 	border-bottom-right-radius: 0.5rem;
-	font-size: 1.1rem;
 	letter-spacing: 0.05rem;
 }
 
@@ -983,7 +986,12 @@ a:hover {
 	border-radius: 2rem;
 	color: white;
 	box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
-	font-size: 1rem;
+}
+
+.timeline-card-left .time p,
+.timeline-card-right .time p {
+	font-size: 1.1rem !important;
+	font-weight: 501;
 }
 
 .timeline-card-left .time {

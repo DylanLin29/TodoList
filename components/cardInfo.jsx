@@ -8,6 +8,8 @@ import {
 	faClipboardCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import Note from "./note";
+import TimelineCardLeft from "./common/timelineCardLeft";
+import TimelineCardRight from "./common/timelineCardRight";
 import { useState } from "react";
 
 const CardInfo = () => {
@@ -65,6 +67,15 @@ const CardInfo = () => {
 					<span>Marks this todo item as incomplete</span>
 				</div>
 			</div>
+			{/* <div className="card-info-timeline">
+				<TimelineCardLeft
+					description="Buy some fruits"
+					date="07-28-2020"
+					title="Grocery"
+					category="Home"
+					check={false}
+				/>
+			</div> */}
 		</div>
 	);
 };

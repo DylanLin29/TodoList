@@ -50,6 +50,7 @@ class NoteForm extends Form {
 			createDate: 0,
 			check: false,
 			date: "",
+			userID: this.props.user._id,
 		};
 		this.setState({ errors: {}, selectImportance, data });
 		this.props.handleOpenNote();

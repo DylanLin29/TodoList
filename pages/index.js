@@ -11,11 +11,20 @@ const Home = ({ authenticated }) => {
 		<>
 			<Navbar authenticated={authenticated} currentPage="index" />
 			<div className="home">
-				<div className="container">
-					<div className="home-circle-top" />
-					<div className="home-circle-bottom" />
+				<div className="home-circle-top" />
+				<div className="home-circle-bottom" />
+				<div className="todolist-title">
 					<img src="../images/TodoList.png" />
-					<span>TODOLIST</span>
+					<div className="todolist-title-button">
+						<span>TODOLIST</span>
+						{authenticated ? (
+							<a href="/todo" className="todolist-button-authenticate">
+								Create a todo!
+							</a>
+						) : (
+							<a href="/login">Get Started!</a>
+						)}
+					</div>
 				</div>
 			</div>
 			<TodoListInfo />

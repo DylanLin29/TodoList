@@ -14,9 +14,7 @@ export default async (req, res) => {
 		switch (method) {
 			case "GET":
 				try {
-					const notes = await Note.find({ userID: userID }).sort({
-						importance: 1,
-					});
+					const notes = await Note.find({ userID: userID });
 					res.json({ notes: notes });
 				} catch (error) {
 					console.log(error);

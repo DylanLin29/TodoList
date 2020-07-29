@@ -26,7 +26,7 @@ class Todo extends Component {
 		},
 		{ key: "category", text: "Category" },
 		{ key: "check", text: "Status" },
-		{ key: "date", text: "Date" },
+		{ key: "createDate", text: "Created Date" },
 	];
 
 	componentDidMount() {

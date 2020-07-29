@@ -245,7 +245,7 @@ p {
 .card-info-details {
 	background-color: white;
 	height: 27.3rem;
-	padding-top: -2rem;
+	padding-top: 1rem;
 	margin-top: 4rem;
 	padding-left: 2rem;
 	width: 34rem;
@@ -296,12 +296,13 @@ p {
 	margin-right: 0.7rem;
 }
 
+.card-info-importance,
 .card-info-details .fa-chevron-down,
 .card-info-details .fa-check,
 .card-info-details .fa-spinner,
 .card-info-details .fa-trash,
 .card-info-details .fa-clipboard-check {
-	margin-top: 1.5rem;
+	margin-top: 1.3rem;
 	margin-left: 0.5rem;
 }
 
@@ -314,13 +315,13 @@ p {
 	font-size: 2rem;
 	color: var(--clr-importanceRed);
 	color: var(--clr-undoRed);
-	margin-left: 1rem;
+	margin-left: 0.5rem;
 	margin-right: 1.2rem;
 }
 
-.card-info-importance {
+/* .card-info-importance {
 	margin-top: 1.5rem;
-}
+} */
 
 @media screen and (min-width: 60rem) {
 	.card-info {
@@ -495,8 +496,9 @@ img:nth-child(2) {
 /* appForm */
 
 .appForm {
-	margin-top: 5%;
+	margin-top: 5rem;
 	width: 30% !important;
+	min-width: 35rem;
 }
 
 label {
@@ -697,8 +699,7 @@ a:hover {
 	background-color: #e0e1e2 !important;
 }
 
-/* Flip cards */
-/* Front */
+/* Card */
 .card-wrapper {
 	display: flex;
 	align-items: center;
@@ -909,10 +910,10 @@ a:hover {
 
 .timeline-card-header {
 	position: relative;
-	height: 3rem;
+	height: 3.5rem;
 	background-color: black;
 	color: #fff;
-	padding: 1rem;
+	padding: 1rem !important;
 	background-color: var(--clr-undoRed);
 	font-size: 1.5rem;
 	font-weight: 530;
@@ -982,6 +983,7 @@ a:hover {
 	border-radius: 2rem;
 	color: white;
 	box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
+	font-size: 1rem;
 }
 
 .timeline-card-left .time {

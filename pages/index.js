@@ -16,7 +16,7 @@ const Home = ({ authenticated }) => {
 				<div className="todolist-title">
 					<img src="../images/TodoList.png" />
 					<div className="todolist-title-button">
-						<span>TODOLIST</span>
+						<span>{authenticated ? "WELCOME" : "TODOLIST"}</span>
 						{authenticated ? (
 							<a href="/todo" className="todolist-button-authenticate">
 								Create a todo!

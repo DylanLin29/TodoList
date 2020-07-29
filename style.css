@@ -254,7 +254,7 @@ p {
 	box-shadow: 0.5rem 0.5rem 0.3rem rgba(0, 0, 0, 0.2);
 }
 
-.fa-home {
+.card-info-details .fa-home {
 	color: white;
 	background-color: var(--clr-darkerBlue);
 	border-radius: 50%;
@@ -317,6 +317,46 @@ p {
 	color: var(--clr-undoRed);
 	margin-left: 0.5rem;
 	margin-right: 1.2rem;
+}
+
+.card-content {
+	background-color: white;
+	padding: 1rem;
+	margin-top: 4rem;
+	border-radius: 0.5rem;
+	box-shadow: 0.5rem 0.5rem 0.3rem rgba(0, 0, 0, 0.2);
+	font-size: 1.2rem;
+	font-family: sans-serif;
+	width: 30rem;
+}
+
+.card-content tr td:nth-child(1) {
+	text-align: center;
+}
+
+.card-content tr:nth-child(2) td:nth-child(1) {
+	color: var(--clr-undoRed);
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 1.5rem;
+}
+
+.card-content td {
+	padding: 0.8rem 0.5rem;
+	padding-left: 1rem;
+}
+
+.card-content .fa-home {
+	color: white;
+	background-color: var(--clr-darkerBlue);
+	border-radius: 50%;
+	width: 2rem !important;
+	height: 2rem !important;
+	padding: 0.3rem;
+	transform: rotateY(180deg);
+}
+
+.card-content .fa-check {
+	color: var(--clr-doneBlue);
 }
 
 /* .card-info-importance {

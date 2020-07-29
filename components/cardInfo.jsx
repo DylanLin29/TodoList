@@ -37,7 +37,51 @@ const CardInfo = () => {
 					handleDelete={handleDelete}
 				/>
 			</div>
-			<div className="card-info-details">
+			<table className="card-content">
+				<tbody>
+					<tr>
+						<td>
+							<FontAwesomeIcon icon={faHome} />
+						</td>
+						<td>The category of the created todo item</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>The level of importance of the todo item</td>
+					</tr>
+					<tr>
+						<td>
+							<FontAwesomeIcon icon={faCheck} size="lg" />
+						</td>
+						<td>This todo item is completed</td>
+					</tr>
+					<tr>
+						<td>
+							<FontAwesomeIcon icon={faChevronDown} size="lg" />
+						</td>
+						<td>Displays the description</td>
+					</tr>
+					<tr>
+						<td>
+							<FontAwesomeIcon icon={faTrash} size="lg" />
+						</td>
+						<td>Deletes this todo item</td>
+					</tr>
+					<tr>
+						<td>
+							<FontAwesomeIcon icon={faClipboardCheck} size="lg" />
+						</td>
+						<td>Marks this todo item as complete</td>
+					</tr>
+					<tr>
+						<td>
+							<FontAwesomeIcon icon={faSpinner} size="lg" />
+						</td>
+						<td>Marks this todo item as incomplete</td>
+					</tr>
+				</tbody>
+			</table>
+			{/* <div className="card-info-details">
 				<div className="card-info-home">
 					<FontAwesomeIcon icon={faHome} size="3x" />
 					<span>Represents the category of this todo item</span>
@@ -66,7 +110,7 @@ const CardInfo = () => {
 					<FontAwesomeIcon icon={faSpinner} size="2x" />
 					<span>Marks this todo item as incomplete</span>
 				</div>
-			</div>
+			</div> */}
 			{/* <div className="card-info-timeline">
 				<TimelineCardLeft
 					description="Buy some fruits"

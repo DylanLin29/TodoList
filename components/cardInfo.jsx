@@ -81,45 +81,6 @@ const CardInfo = () => {
 					</tr>
 				</tbody>
 			</table>
-			{/* <div className="card-info-details">
-				<div className="card-info-home">
-					<FontAwesomeIcon icon={faHome} size="3x" />
-					<span>Represents the category of this todo item</span>
-				</div>
-				<div className="card-info-importance">
-					<span>1</span>
-					<span>Indicates the level of importance</span>
-				</div>
-				<div className="card-info-check">
-					<FontAwesomeIcon icon={faCheck} size="2x" />
-					<span>Indicates this todo item is completed</span>
-				</div>
-				<div className="card-info-description">
-					<FontAwesomeIcon icon={faChevronDown} size="2x" />
-					<span>Displays the description</span>
-				</div>
-				<div className="card-info-trash">
-					<FontAwesomeIcon icon={faTrash} size="2x" />
-					<span>Deletes this todo item</span>
-				</div>
-				<div className="card-info-complete">
-					<FontAwesomeIcon icon={faClipboardCheck} size="2x" />
-					<span>Marks this todo item as complete</span>
-				</div>
-				<div className="card-info-incomplate">
-					<FontAwesomeIcon icon={faSpinner} size="2x" />
-					<span>Marks this todo item as incomplete</span>
-				</div>
-			</div> */}
-			{/* <div className="card-info-timeline">
-				<TimelineCardLeft
-					description="Buy some fruits"
-					date="07-28-2020"
-					title="Grocery"
-					category="Home"
-					check={false}
-				/>
-			</div> */}
 		</div>
 	);
 };

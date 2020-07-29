@@ -1,6 +1,4 @@
 import Navbar from "../components/navbar";
-import Features from "../components/features";
-import Jumbotron from "../components/jumbotron";
 import Footer from "../components/footer";
 import { optionalAuth } from "../utils/auth";
 import TodoListInfo from "../components/todoListInfo";
@@ -30,9 +28,6 @@ const Home = ({ authenticated }) => {
 			<TodoListInfo />
 			<CardInfo />
 			<Footer />
-
-			{/* <Jumbotron /> */}
-			{/* <Features /> */}
 		</>
 	);
 };

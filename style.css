@@ -1,7 +1,6 @@
 :root {
 	/* Navbar's color */
 	--clr-lightBlue: #5fdde5;
-	/* Feature icons' color */
 	--clr-darkerBlue: #01c2cb;
 	--clr-mediumBlue: #15ced8;
 	--clr-lightOrange: #ffbd69;
@@ -242,81 +241,11 @@ p {
 	transition: opacity 0.5s;
 }
 
-.card-info-details {
-	background-color: white;
-	height: 27.3rem;
-	padding-top: 1rem;
-	margin-top: 4rem;
-	padding-left: 2rem;
-	width: 34rem;
-	border-radius: 1rem;
-	padding-bottom: 1rem;
-	box-shadow: 0.5rem 0.5rem 0.3rem rgba(0, 0, 0, 0.2);
-}
-
-.card-info-details .fa-home {
-	color: white;
-	background-color: var(--clr-darkerBlue);
-	border-radius: 50%;
-	width: 3rem !important;
-	height: 3rem !important;
-	padding: 0.2rem;
-	margin-top: 1.5rem;
-	transform: rotateY(180deg);
-}
-
 .card-info span {
 	margin-left: 1rem;
 	font-family: var(--ff-timeline);
 	color: black;
 	font-size: 1.3rem;
-}
-
-.card-info-check span {
-	margin-left: 1.45rem;
-}
-
-.card-info-trash span {
-	margin-left: 1.6rem;
-}
-
-.card-info-complete span {
-	margin-left: 1.75rem;
-}
-
-.card-info-details .fa-check {
-	color: var(--clr-doneBlue);
-}
-
-.card-info-incomplate span {
-	margin-left: 1.3rem;
-}
-
-.card-info-details .fa-chevron-down {
-	margin-right: 0.7rem;
-}
-
-.card-info-importance,
-.card-info-details .fa-chevron-down,
-.card-info-details .fa-check,
-.card-info-details .fa-spinner,
-.card-info-details .fa-trash,
-.card-info-details .fa-clipboard-check {
-	margin-top: 1.3rem;
-	margin-left: 0.5rem;
-}
-
-.card-info-details .fa-clipboard-check {
-	margin-left: 0.6rem;
-}
-
-.card-info-importance span:nth-child(1) {
-	font-family: Impact, Charcoal, sans-serif;
-	font-size: 2rem;
-	color: var(--clr-importanceRed);
-	color: var(--clr-undoRed);
-	margin-left: 0.5rem;
-	margin-right: 1.2rem;
 }
 
 .card-content {
@@ -358,10 +287,6 @@ p {
 .card-content .fa-check {
 	color: var(--clr-doneBlue);
 }
-
-/* .card-info-importance {
-	margin-top: 1.5rem;
-} */
 
 @media screen and (min-width: 60rem) {
 	.card-info {
@@ -441,53 +366,6 @@ nav span {
 .nav-todos,
 .nav-timeline {
 	border-bottom: 5px solid var(--clr-darkerBlue);
-}
-
-/* ------------------------------------------------------- */
-
-/* Features */
-
-.row img {
-	margin-top: 5%;
-	height: 10rem;
-}
-
-img:nth-child(2) {
-	margin-left: 10rem;
-	margin-right: 10rem;
-}
-
-.justify-content-md-center img:hover {
-	cursor: pointer;
-}
-
-.feature-timeline {
-	background-color: #eeeeee;
-	margin-top: 5rem;
-	vertical-align: center;
-	padding-bottom: 2rem;
-	border-radius: 1rem;
-}
-
-/* ------------------------------------------------------- */
-
-/* Jumbotron */
-
-.jumbotron {
-	width: 60%;
-	margin: 1rem auto;
-	border-radius: 1rem !important;
-	background-color: rgba(95, 221, 229, 0.7) !important;
-}
-
-.jumbotron h1 {
-	color: white;
-	text-align: center;
-	font-weight: 700;
-}
-
-.jumbotron img {
-	width: 10rem;
 }
 
 /* ------------------------------------------------------- */
@@ -617,6 +495,8 @@ a:hover {
 	font-size: small !important;
 }
 
+/* ------------------------------------------------------- */
+
 /* Todolist Page */
 
 .create-button-container {
@@ -635,7 +515,6 @@ a:hover {
 .create {
 	background-color: var(--clr-darkerBlue) !important;
 	color: white !important;
-	/* margin: 10% 50% auto !important; */
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
@@ -738,6 +617,8 @@ a:hover {
 .importance-button:hover {
 	background-color: #e0e1e2 !important;
 }
+
+/* ------------------------------------------------------- */
 
 /* Card */
 .card-wrapper {
@@ -900,6 +781,8 @@ a:hover {
 	}
 }
 
+/* ------------------------------------------------------- */
+
 /* timeline page */
 .timeline {
 	font-family: var(--ff-formText);
@@ -930,6 +813,8 @@ a:hover {
 .timeline-card-right {
 	float: right;
 }
+
+/* ------------------------------------------------------- */
 
 /* timeline card */
 .timeline-card-left,

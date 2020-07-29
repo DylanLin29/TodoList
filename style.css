@@ -35,8 +35,8 @@ p {
 
 .home-circle-top,
 .home-circle-bottom {
-	width: 40rem;
-	height: 40rem;
+	width: 20rem;
+	height: 20rem;
 	border-radius: 50%;
 	position: absolute;
 	z-index: 0;
@@ -44,32 +44,99 @@ p {
 
 .home-circle-top {
 	background-color: #8bd4ab;
-	top: -20rem;
-	left: -20rem;
+	top: -10rem;
+	left: -10rem;
 }
 
 .home-circle-bottom {
 	background-color: #e94759;
-	bottom: -20rem;
-	right: -20rem;
+	bottom: -10rem;
+	right: -10rem;
+}
+
+@media screen and (min-width: 60rem) {
+	.home-circle-top,
+	.home-circle-bottom {
+		width: 25rem;
+		height: 25rem;
+	}
+	.home-circle-top {
+		top: -12.5rem;
+		left: -12.5rem;
+	}
+	.home-circle-bottom {
+		bottom: -12.5rem;
+		right: -12.5rem;
+	}
+}
+
+@media screen and (min-width: 85rem) {
+	.home-circle-top,
+	.home-circle-bottom {
+		width: 30rem;
+		height: 30rem;
+	}
+	.home-circle-top {
+		top: -15rem;
+		left: -15rem;
+	}
+	.home-circle-bottom {
+		bottom: -15rem;
+		right: -15rem;
+	}
 }
 
 .home img {
 	/* margin-top: 25%; */
-	margin-left: 10%;
-	width: 18rem;
+	margin-left: 0rem;
+	width: 15rem;
 	position: absolute;
-	top: 30%;
+	top: 25%;
+	left: 10%;
 }
 
 .home span {
 	font-family: var(--ff-timeline);
-	font-size: 7rem;
+	font-size: 5rem;
 	font-weight: 650;
 	position: absolute;
-	left: 45%;
-	top: 50%;
 	color: white;
+	left: 10%;
+	top: 70%;
+}
+
+@media screen and (min-width: 50rem) {
+	.home img {
+		/* margin-top: 25%; */
+		margin-left: 10%;
+		width: 15rem;
+		position: absolute;
+		top: 30%;
+	}
+
+	.home span {
+		left: 50%;
+		top: 50%;
+		font-size: 5rem;
+		position: absolute;
+	}
+}
+
+@media screen and (min-width: 70rem) {
+	.home img {
+		/* margin-top: 25%; */
+		margin-left: 10%;
+		width: 18rem;
+		position: absolute;
+		top: 30%;
+	}
+
+	.home span {
+		left: 45%;
+		top: 50%;
+		font-size: 7rem;
+		position: absolute;
+	}
 }
 
 .todolist-info {
@@ -81,7 +148,7 @@ p {
 .todolist-info p {
 	padding-top: 10rem;
 	color: #f5e753;
-	font-size: 3rem;
+	font-size: 2.5rem;
 	font-weight: 550;
 	letter-spacing: 0.1rem;
 }
@@ -92,9 +159,21 @@ p {
 
 .todolist-info ul li {
 	color: white;
-	font-size: 1.8rem;
+	font-size: 1.5rem;
 	line-height: 2.5rem;
 	padding: 1rem;
+}
+
+@media screen and (min-width: 70rem) {
+	.todolist-info p {
+		font-size: 3rem;
+	}
+	.todolist-info ul {
+		width: 80%;
+	}
+	.todolist-info ul li {
+		font-size: 1.8rem;
+	}
 }
 
 .card-info {
@@ -103,7 +182,9 @@ p {
 	background-color: #8bd4ab;
 	/* background-color: var(--clr-footerBlack); */
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 1rem;
 }
 
 .card-info-delete {
@@ -119,7 +200,17 @@ p {
 	padding-left: 2rem;
 	width: 40rem;
 	border-radius: 1rem;
+	padding-bottom: 1rem;
 	box-shadow: 0.5rem 0.5rem 0.3rem rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 60rem) {
+	.card-info {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
 }
 
 .fa-home {

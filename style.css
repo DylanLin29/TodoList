@@ -333,7 +333,8 @@ p {
 	border-radius: 10px !important;
 	box-shadow: 0 3px 0 rgba(24, 44, 46, 0.1);
 	margin-right: 1rem;
-	font-size: 1.3rem;
+	font-size: 1.3rem !important;
+	height: 2.3rem !important;
 }
 
 .nav-logout {
@@ -375,7 +376,7 @@ nav span {
 	z-index: 1;
 	margin-top: 3rem;
 	right: 8rem;
-	border-radius: 10px;
+	border-radius: 5px;
 	min-width: 9rem;
 }
 

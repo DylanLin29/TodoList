@@ -599,6 +599,16 @@ a:hover {
 	padding: 1rem;
 }
 
+.register-success {
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.register-success-wrapper {
+	text-align: center;
+	padding: 1rem;
+}
+
 .form-label {
 	color: var(--clr-lightBlue) !important;
 	font-weight: 500 !important;

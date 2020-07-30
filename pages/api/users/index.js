@@ -1,10 +1,11 @@
 import User from "../../../models/user";
 import { validateRegisterUser } from "../../../utils/validate";
 import dbConnect from "../../../utils/dbConnect";
+const links = require("../../../config/links");
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-import cookie from "cookie";
+const nodemailer = require("nodemailer");
 
 dbConnect();
 
@@ -17,9 +18,13 @@ export default async (req, res) => {
 	// Check if the user already exists (registered)
 	const user = await User.findOne({ email: req.body.email });
 	if (user) {
-		return res
-			.status(400)
-			.json({ success: false, message: "User already registered." });
+		if (user.confirmed) {
+			return res
+				.status(400)
+				.json({ success: false, message: "User already registered." });
+		} else {
+			await User.findOneAndDelete({ email: req.body.email });
+		}
 	}
 
 	// If the user is not existed, create another user and
@@ -31,23 +36,35 @@ export default async (req, res) => {
 	newUser.password = await bcrypt.hash(newUser.password, salt);
 	await newUser.save();
 
-	// only get the 'username' and 'email' property to
-	// hide user's password
-	const token = jwt.sign({ _id: newUser._id }, process.env.JWT, {
-		expiresIn: "1h",
+	// Email Verification
+
+	const transporter = nodemailer.createTransport({
+		service: "Gmail",
+		auth: {
+			user: process.env.EMAIL_ACCOUNT,
+			pass: process.env.EMAIL_PASSWORD,
+		},
 	});
-	// res.setHeader("x-auth-token", token);
-	res.setHeader(
-		"Set-Cookie",
-		cookie.serialize("auth", token, {
-			httpOnly: true,
-			secure: process.env.NODE_ENV !== "development",
-			sameSite: "strict",
-			maxAge: 3600,
-			path: "/",
-		})
+
+	jwt.sign(
+		{ _id: newUser._id },
+		process.env.JWT,
+		{
+			expiresIn: "1d",
+		},
+		(err, emailToken) => {
+			const verficationUrl = `${links.verification}/${emailToken}`;
+			transporter.sendMail({
+				from: '"TodoList" <TodoList@no-replay.com>',
+				to: newUser.email,
+				subject: "TodoList Email Confirmation",
+				html: `Hi, ${newUser.username} <br> Please click <a href="${verficationUrl}">Here</a>
+				to confirm your email for <a href=https://dylan-todolist.herokuapp.com/>TodoList</a>`,
+			});
+		}
 	);
-	return res
-		.status(200)
-		.json({ success: true, message: "Successfully Registered!" });
+	return res.status(200).json({
+		success: true,
+		message: "Verification email has been sent!",
+	});
 };

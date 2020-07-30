@@ -20,6 +20,11 @@ const userSchema = new mongoose.Schema({
 		minlength: 5,
 		maxlength: 1024,
 	},
+	confirmed: {
+		type: Boolean,
+		default: false,
+		required: true,
+	},
 });
 
 module.exports = mongoose.models.User || mongoose.model("User", userSchema);

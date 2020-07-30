@@ -311,8 +311,7 @@ p {
 
 .nav-link {
 	color: white !important;
-	font-weight: 500;
-	font-size: 1.3rem;
+	font-size: 1.3rem !important;
 }
 
 .register {
@@ -385,6 +384,10 @@ nav span {
 	color: var(--clr-darkerBlue);
 	font-family: var(--ff-timeline);
 	font-size: 1.2rem;
+}
+
+.nav-dropdown-content p:last-child:hover {
+	color: var(--clr-doneBlue);
 }
 
 .nav-dropdown-content p:last-child {

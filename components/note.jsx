@@ -8,6 +8,7 @@ import {
 	faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import ReactTooltip from "react-tooltip";
 
 const Note = ({
 	title,
@@ -25,6 +26,7 @@ const Note = ({
 	check && (arrowClass = "card-arrow-complete");
 	return (
 		<div className="card-wrapper">
+			<ReactTooltip place="bottom" />
 			<div className="card card-info-note">
 				<div className={check ? "card-img card-complete" : "card-img"} />
 				<img src={`images/${category}.png`} className="profile-img" />
@@ -75,13 +77,21 @@ const Note = ({
 				)}
 				<ul className="card-options">
 					<li onClick={() => handleDelete(_id)}>
-						<FontAwesomeIcon icon={faTrash} size="lg" />
+						<FontAwesomeIcon icon={faTrash} size="lg" data-tip="Delete" />
 					</li>
 					<li onClick={() => handleComplete(_id, true)}>
-						<FontAwesomeIcon icon={faClipboardCheck} size="lg" />
+						<FontAwesomeIcon
+							icon={faClipboardCheck}
+							size="lg"
+							data-tip="Complete"
+						/>
 					</li>
 					<li onClick={() => handleComplete(_id, false)}>
-						<FontAwesomeIcon icon={faSpinner} size="lg" />
+						<FontAwesomeIcon
+							icon={faSpinner}
+							size="lg"
+							data-tip="In Progress"
+						/>
 					</li>
 				</ul>
 			</div>

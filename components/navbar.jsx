@@ -1,5 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faListAlt, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import {
+	faListAlt,
+	faChevronDown,
+	faBars,
+} from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import Router from "next/router";
 const links = require("../config/links");
@@ -19,7 +23,7 @@ const Navbar = ({ authenticated, currentPage }) => {
 		if (authenticated) {
 			const today = new Date();
 			const date = String(today.getDate()).padStart(2, "0");
-			const month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+			const month = String(today.getMonth() + 1).padStart(2, "0");
 			const year = today.getFullYear();
 			const currentDate = `${month}-${date}-${year}`;
 			const fetchData = async () => {
@@ -45,8 +49,8 @@ const Navbar = ({ authenticated, currentPage }) => {
 			<a className="navbar-brand" href="/">
 				<FontAwesomeIcon icon={faListAlt} size="2x" />
 			</a>
-			<button
-				className="navbar-toggler"
+			{/* <button
+				className="navbar-toggler navbar-nav ml-auto"
 				type="button"
 				data-toggle="collapse"
 				data-target="#navbarSupportedContent"
@@ -54,8 +58,10 @@ const Navbar = ({ authenticated, currentPage }) => {
 				aria-expanded="false"
 				aria-label="Toggle navigation"
 			>
-				<span className="navbar-toggler-icon"></span>
-			</button>
+				<span className="navbar-toggler-icon">
+					<FontAwesomeIcon icon={faBars} />
+				</span>
+			</button> */}
 
 			<div className="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul className="navbar-nav mr-auto">

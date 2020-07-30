@@ -2,6 +2,7 @@ import Navbar from "../components/navbar";
 import TimelineCardLeft from "../components/common/timelineCardLeft";
 import TimelineCardRight from "../components/common/timelineCardRight";
 import { Component } from "react";
+import { Button } from "semantic-ui-react";
 const links = require("../config/links");
 import axios from "axios";
 import _ from "lodash";
@@ -9,6 +10,7 @@ import _ from "lodash";
 class Timeline extends Component {
 	state = {
 		groupTodos: [],
+		today: false,
 	};
 	async componentDidMount() {
 		const { data } = await axios.get(links.notes);
@@ -20,13 +22,57 @@ class Timeline extends Component {
 		this.setState({ groupTodos: groupNotes });
 	}
 	render() {
-		const { groupTodos } = this.state;
+		const { groupTodos, today } = this.state;
+		let updatedTodos = groupTodos;
+		const now = new Date();
+		const date = String(now.getDate()).padStart(2, "0");
+		const month = String(now.getMonth() + 1).padStart(2, "0"); //January is 0!
+		const year = now.getFullYear();
+		const currentDate = `${month}-${date}-${year}`;
+		if (today) {
+			updatedTodos = _.filter(groupTodos, { date: currentDate });
+		}
 		let direction = "right";
 		return (
 			<>
 				<Navbar authenticated={true} currentPage="timeline" />
+				<div className={"timeline-options-container"}>
+					{today ? (
+						<>
+							<Button
+								className="timeline-options"
+								onClick={() => this.setState({ today: true })}
+								primary
+							>
+								Today's Timeline
+							</Button>
+							<Button
+								className="timeline-options"
+								onClick={() => this.setState({ today: false })}
+							>
+								Entire Timeline
+							</Button>
+						</>
+					) : (
+						<>
+							<Button
+								className="timeline-options"
+								onClick={() => this.setState({ today: true })}
+							>
+								Today's Timeline
+							</Button>
+							<Button
+								className="timeline-options"
+								onClick={() => this.setState({ today: false })}
+								primary
+							>
+								Entire Timeline
+							</Button>
+						</>
+					)}
+				</div>
 				<div className="timeline">
-					{groupTodos.map(({ date, todos }) => {
+					{updatedTodos.map(({ date, todos }) => {
 						let currentDate = "";
 						let allComplete = todos.map(({ check }) => check);
 						allComplete = allComplete.every(Boolean);

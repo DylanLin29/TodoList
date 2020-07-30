@@ -16,20 +16,22 @@ const Navbar = ({ authenticated, currentPage }) => {
 	};
 
 	useEffect(() => {
-		const today = new Date();
-		const date = String(today.getDate()).padStart(2, "0");
-		const month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-		const year = today.getFullYear();
-		const currentDate = `${month}-${date}-${year}`;
-		const fetchData = async () => {
-			const { data } = await axios.get(links.notes);
-			const todayTodos = _.filter(data.notes, { date: currentDate });
-			todayTodos &&
-				setTodoItems(
-					todayTodos.length > 4 ? todayTodos.slice(0, 4) : todayTodos
-				);
-		};
-		fetchData();
+		if (authenticated) {
+			const today = new Date();
+			const date = String(today.getDate()).padStart(2, "0");
+			const month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+			const year = today.getFullYear();
+			const currentDate = `${month}-${date}-${year}`;
+			const fetchData = async () => {
+				const { data } = await axios.get(links.notes);
+				const todayTodos = _.filter(data.notes, { date: currentDate });
+				todayTodos &&
+					setTodoItems(
+						todayTodos.length > 4 ? todayTodos.slice(0, 4) : todayTodos
+					);
+			};
+			fetchData();
+		}
 	}, []);
 
 	return (

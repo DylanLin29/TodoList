@@ -368,6 +368,33 @@ nav span {
 	border-bottom: 5px solid var(--clr-darkerBlue);
 }
 
+.nav-item .fa-chevron-down {
+	color: white;
+}
+
+.nav-dropdown-content {
+	position: absolute;
+	background-color: white;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
+	z-index: 1;
+	margin-top: 3rem;
+	right: 8rem;
+	border-radius: 10px;
+	min-width: 9rem;
+}
+
+.nav-dropdown-content p {
+	/* color: #08d9d6; */
+	color: var(--clr-darkerBlue);
+	font-family: var(--ff-timeline);
+	font-size: 1.2rem;
+}
+
+.nav-dropdown-content p:last-child {
+	color: var(--clr-doneBlue);
+}
+
 /* ------------------------------------------------------- */
 
 /* Footer */

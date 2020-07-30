@@ -1,13 +1,37 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faListAlt } from "@fortawesome/free-solid-svg-icons";
+import { faListAlt, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 import Router from "next/router";
 const links = require("../config/links");
 const axios = require("axios");
+import _ from "lodash";
+
 const Navbar = ({ authenticated, currentPage }) => {
+	const [todoItems, setTodoItems] = useState([]);
+	const [dropdownOpen, setdropDownOpen] = useState(false);
+
 	const handleLogout = async () => {
 		await axios.post(links.logout);
 		Router.push("/");
 	};
+
+	useEffect(() => {
+		const today = new Date();
+		const date = String(today.getDate()).padStart(2, "0");
+		const month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+		const year = today.getFullYear();
+		const currentDate = `${month}-${date}-${year}`;
+		const fetchData = async () => {
+			const { data } = await axios.get(links.notes);
+			const todayTodos = _.filter(data.notes, { date: currentDate });
+			todayTodos &&
+				setTodoItems(
+					todayTodos.length > 4 ? todayTodos.slice(0, 4) : todayTodos
+				);
+		};
+		fetchData();
+	}, []);
+
 	return (
 		<nav
 			className={
@@ -76,15 +100,47 @@ const Navbar = ({ authenticated, currentPage }) => {
 							</li>
 						</>
 					) : (
-						<li className="nav-item">
-							<a
-								className="nav-link nav-auth-button nav-logout"
-								style={{ cursor: "pointer" }}
-								onClick={handleLogout}
-							>
-								Logout
-							</a>
-						</li>
+						<>
+							{currentPage === "index" && (
+								<>
+									<li className="nav-item">
+										<a
+											className="nav-link nav-auth-button"
+											style={{ cursor: "pointer" }}
+											onClick={() => setdropDownOpen(!dropdownOpen)}
+										>
+											Today's Due <FontAwesomeIcon icon={faChevronDown} />
+										</a>
+									</li>
+									{dropdownOpen && (
+										<div className="nav-dropdown-content">
+											{todoItems.length ? (
+												<>
+													{todoItems.map(({ title }) => {
+														return <p key={title}>{title}</p>;
+													})}
+													<hr />
+													<p>
+														<a href="/todo">More Details</a>
+													</p>
+												</>
+											) : (
+												<p style={{ color: "grey" }}>None</p>
+											)}
+										</div>
+									)}
+								</>
+							)}
+							<li className="nav-item">
+								<a
+									className="nav-link nav-auth-button nav-logout"
+									style={{ cursor: "pointer" }}
+									onClick={handleLogout}
+								>
+									Logout
+								</a>
+							</li>
+						</>
 					)}
 				</ul>
 			</div>

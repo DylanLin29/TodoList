@@ -42,8 +42,8 @@ const Navbar = ({ authenticated, currentPage }) => {
 		<nav
 			className={
 				currentPage === "index"
-					? "navbar navbar-expand-lg fixed-top"
-					: "navbar navbar-expand-lg"
+					? "navbar navbar-expand fixed-top"
+					: "navbar navbar-expand"
 			}
 		>
 			<a className="navbar-brand" href="/">

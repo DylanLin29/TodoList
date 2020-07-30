@@ -16,9 +16,7 @@ const Home = ({ authenticated }) => {
 					<div className="todolist-title-button">
 						<span>{authenticated ? "WELCOME" : "TODOLIST"}</span>
 						{authenticated ? (
-							<a href="/todo" className="todolist-button-authenticate">
-								Create a todo!
-							</a>
+							<a href="/todo">Create a todo!</a>
 						) : (
 							<a href="/login">Get Started!</a>
 						)}

@@ -3,9 +3,15 @@
 ---
 
 Website: https://dylan-todolist.herokuapp.com/
-<img src="README_imgs/Example_1"/>
-<img src="README_imgs/Example_2"/>
-<img src="README_imgs/Example_3"/>
+<br/>
+
+#### Examples:
+
+<img src="README_imgs/Example_1.png"/>
+<img src="README_imgs/Example_2.png"/>
+<img src="README_imgs/Example_3.png"/>
+
+---
 
 #### Description:
 
